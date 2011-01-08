@@ -1,0 +1,26 @@
+---
+Mapping\Fixture\Yaml\BaseCategory:
+  type: mappedSuperclass
+  fields:
+    lft:
+      type: integer
+      gedmo:
+        - treeLeft
+    rgt:
+      type: integer
+      gedmo:
+        - treeRight
+    lvl:
+      type: integer
+      gedmo:
+        - treeLevel
+    created:
+      type: datetime
+      gedmo:
+        timestampable:
+          on: create
+    updated:
+      type: date
+      gedmo:
+        timestampable:
+          on: update
