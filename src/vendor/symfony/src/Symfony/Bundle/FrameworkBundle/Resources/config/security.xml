@@ -97,7 +97,7 @@
             <argument type="collection"></argument>
         </service>
         
-        <service id="security.encoder_factory" alias="security.encoder_factory.generic" public="false"></service>
+        <service id="security.encoder_factory" alias="security.encoder_factory.generic"></service>
 
         <service id="security.logout.handler.session" class="%security.logout.handler.session.class%" public="false"></service>
 
@@ -154,7 +154,7 @@
         </service>
 
         <service id="security.firewall" class="%security.firewall.class%" public="false">
-            <tag name="kernel.listener" priority="128" />
+            <tag name="kernel.listener" priority="-128" />
             <argument type="service" id="security.firewall.map" />
         </service>
         <service id="security.firewall.map" class="%security.firewall.map.class%" public="false" />

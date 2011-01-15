@@ -16,14 +16,15 @@ twig.config:
   strict_variables:   %kernel.debug%
 
 ## Doctrine Configuration
-#doctrine.dbal:
-#  dbname:      xxxxxxxx
-#  user:        xxxxxxxx
-#  password:    ~
-#doctrine.orm:
-#  auto_generate_proxy_classes: %kernel.debug%
-#  mappings:
-#    HelloBundle: ~
+doctrine.dbal:
+  dbname:       sf2com
+  user:         root
+  password:     ~
+
+doctrine.orm:
+  auto_generate_proxy_classes: %kernel.debug%
+  mappings:
+    HelloBundle: ~
 
 ## Swiftmailer Configuration
 #swiftmailer.config:
