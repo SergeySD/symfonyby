@@ -1,0 +1,3 @@
+SfbyStaticBundle_homepage:
+    pattern:  /
+    defaults: { _controller: SfbyStaticBundle:Default:index }

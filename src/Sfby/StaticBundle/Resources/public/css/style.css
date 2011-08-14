@@ -1,0 +1,19 @@
+
+#logo{
+ margin: 200px auto;
+ width: 550px;
+ font-size: 80px;
+ font-family:"Times New Roman",Georgia,Serif;
+}
+#text{
+ margin: 100px auto;
+ width: 550px;
+ font-size: 16px;
+ font-family:"Times New Roman",Georgia,Serif;
+ text-align: center;
+}
+a
+{
+  text-decoration: none;
+  color: black;
+}
