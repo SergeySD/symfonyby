@@ -1,16 +1,7 @@
-<html> 
-<head> 
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
-<meta name="title" content="Сообщество Symfony программистов в Беларуси" /> 
-<meta name="robots" content="index, follow" /> 
-<meta name="description" content="Сообщество Symfony программистов в Беларуси" /> 
-<meta name="keywords" content="symfony, project, framework, php, php5, open-source, mit, symphony" /> 
-<meta name="language" content="ru" /> 
-<title>Сообщество Symfony программистов в Беларуси</title> 
-<link href="{{ asset('bundles/sfbystatic/css/style.css') }}" rel="stylesheet" type="text/css" media="all" />
-</head> 
-<body> 
+{# src/Acme/HelloBundle/Resources/views/Hello/index.html.twig #}
+{% extends '::base.html.twig' %}
+{% block title %}Сообщество Symfony программистов в Беларуси{% endblock %}
+{% block body %}
 <div id="logo"><a href = 'http://acobby.com'><img src="{{ asset('bundles/sfbystatic/images/symfony.gif') }}" border=0>.by</a></div> 
 <div id="text">При поддержке <a href = 'http://acobby.com'>Acobby Ltd.</a></div> 
-</body> 
-</html>
+{% endblock %}</html>

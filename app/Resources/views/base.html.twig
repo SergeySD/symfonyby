@@ -1,14 +1,20 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {{ facebook_initialize({'xfbml': true}) }}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru"> 
+  <head> 
+    <title>{% block title %}Сообщество Symfony программистов в Беларуси{% endblock %}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    <meta name="title" content="{% block title %}Сообщество Symfony программистов в Беларуси{% endblock %}" /> 
+    <meta name="robots" content="index, follow" /> 
+    <meta name="description" content="{% block description %}Сообщество Symfony программистов в Беларуси{% endblock %}" /> 
+    <meta name="keywords" content="{% block keywords %}symfony, project, framework, php, php5, open-source, mit, symphony{% endblock %}" /> 
+    <meta name="language" content="ru" /> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="{{ asset('bundles/sfbystatic/css/style.css') }}" rel="stylesheet" type="text/css" media="all" />
+    {% block stylesheets %}{% endblock %}
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+  </head> 
+  <body>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
-</html>
+  </html>
