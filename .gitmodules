@@ -4,3 +4,9 @@
 [submodule "vendor/twitteroauth"]
 	path = vendor/twitteroauth
 	url = git://github.com/kertz/twitteroauth.git
+[submodule "vendor/bundles/FOS/FacebookBundle"]
+	path = vendor/bundles/FOS/FacebookBundle
+	url = git://github.com/FriendsOfSymfony/FOSFacebookBundle.git
+[submodule "vendor/facebook"]
+	path = vendor/facebook
+	url = git://github.com/facebook/php-sdk.git

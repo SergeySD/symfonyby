@@ -7,6 +7,7 @@
         <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
+        {{ facebook_initialize({'xfbml': true}) }}
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>

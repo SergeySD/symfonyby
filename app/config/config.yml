@@ -58,8 +58,44 @@ jms_security_extra:
     secure_controllers:  true
     secure_all_services: false
 
+security:
+    factories:
+      - "%kernel.root_dir%/../vendor/bundles/FOS/TwitterBundle/Resources/config/security_factories.xml"
+    providers:
+        fos_twitter:
+            id: fos_twitter.auth
+        fos_facebook:
+            id: fos_facebook.auth
+            
+    firewalls:
+        secured:
+            pattern:   /secured/.*
+            fos_twitter: true
+        public:
+            pattern:   /.*
+            anonymous: true
+            fos_twitter: true
+            logout: true
+            fos_facebook:
+                app_url: "http://apps.facebook.com/appName/"
+                server_url: "http://symfony.by/facebookApp/"
+                login_path: ^/login
+                check_path: ^/login_check$
+                default_target_path: /
+    access_control:
+        - { path: ^/secured/.*, role: [IS_AUTHENTICATED_FULLY] } # This is the route secured with fos_facebook
+        - { path: ^/.*, role: [IS_AUTHENTICATED_ANONYMOUSLY] }
+
 fos_twitter:
     file: %kernel.root_dir%/../vendor/twitteroauth/twitteroauth/twitteroauth.php
     consumer_key: 
     consumer_secret: 
     callback_url: http://symfony.by/login_check
+    
+fos_facebook:
+    file:   %kernel.root_dir%/../vendor/facebook/src/base_facebook.php
+    alias:  facebook
+    app_id: 
+    secret: 
+    cookie: true
+    permissions: [email, user_birthday, user_location]
