@@ -1,3 +1,17 @@
-SfbyStaticBundle_homepage:
-    pattern:  /
-    defaults: { _controller: SfbyStaticBundle:Default:index }
+logout:
+  pattern:   /logout
+
+login_check:
+  pattern:   /login_check
+  
+content:
+    resource: "@SfbyStaticBundle/Controller/ContentController.php"
+    type:     annotation
+
+category:
+    resource: "@SfbyStaticBundle/Controller/CategoryController.php"
+    type:     annotation
+
+product:
+    resource: "@SfbyStaticBundle/Controller/ProductController.php"
+    type:     annotation

@@ -1,4 +1,9 @@
+/web/bundles/
+/app/bootstrap*
 /app/cache/*
 /app/logs/*
-/nbproject/private/
+/vendor/
+/app/config/parameters.ini
+
+
 /nbproject

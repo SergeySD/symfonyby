@@ -1,0 +1,16 @@
+<ul>
+    <li>
+        <a class="{{app.session.locale=='ru'?'active':''}}" href="{{path('list_loc', {'_locale':'ru'})}}">Ru</a> | 
+        <a class="{{app.session.locale=='en'?'active':''}}" href="{{path('list_loc', {'_locale':'en'})}}">En</a>
+    </li>
+       
+    <li class="{{active=='home'?'active':''}}"><a href="{{path('homepage')}}">{{"Homepage"|trans}}</a></li>
+    <li class="{{active=='list'?'active':''}}"><a href="{{path('list')}}">{{"List"|trans}}</a></li>
+    <li><a href="{{path('create')}}">{{"Create"|trans}}</a></li>
+    <li><a href="{{path('deleteAll')}}">{{"Delete All"|trans}}</a></li>
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <li>{{"Welcome, %name%"|trans({'%name%':user.username})}} - <a href="{{path('logout')}}">{{"Logout"|trans}}</a></li>
+    {% else %}
+        <li class="{{active=='login'?'active':''}}"><a href="{{path('login')}}">{{"Login"|trans}}</a></li>
+    {% endif %}
+</ul>

@@ -1,0 +1,34 @@
+{% extends '::base.html.twig' %}
+{% block title %}Category products{% endblock %}
+{% block body %}
+
+<table border=1 cellpadding=3>
+    {% for p in products %}
+        <tr>
+            <td>{{p.category.name}}</td>
+            <td>{{p.name}}</td>
+            <td>{{p.description}}</td>
+            <td>{{p.price}}</td>
+            <td>
+                {% if p.createdAt %}
+                    {{p.createdAt.format('Y-m-d H:i:s')}}
+                {% endif %}
+            </td>
+            <td>
+                {% if p.updatedAt %}
+                    {{p.updatedAt.format('Y-m-d H:i:s')}}
+                {% endif %}
+            </td>
+            <td><a href="{{path('edit', {'id': p.id})}}">edit</a></td>
+            <td><a href="{{path('delete', {'id': p.id})}}">delete</a></td>
+        </tr>
+    {% else %}
+        <tr><td>Epmty</td></tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
+
+{% block menu %}
+    {% render "SfbyStaticBundle:Content:menu" with {'active': 'list'} %}
+{% endblock %}    

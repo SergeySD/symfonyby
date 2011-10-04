@@ -8,10 +8,10 @@
     <meta name="keywords" content="{% block keywords %}symfony, project, framework, php, php5, open-source, mit, symphony{% endblock %}" /> 
     <meta name="language" content="ru" /> 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link href="{{ asset('bundles/sfbystatic/css/style.css') }}" rel="stylesheet" type="text/css" media="all" />
-    {% block stylesheets %}{% endblock %}
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
-    
+    {% block stylesheets %}
+        <link href="{{ asset('bundles/sfbystatic/css/style.css') }}" rel="stylesheet" type="text/css" media="all" />
+    {% endblock %}
     <meta property="og:title" content="Сообщество Symfony программистов в Беларуси"/>
     <meta property="og:type" content="non_profit"/>
     <meta property="og:url" content="http://symfony.by/"/>
@@ -26,6 +26,9 @@
     <meta property="og:language" content="ru"/>
   </head> 
   <body>
+        {% block menu %}
+            {#% render "SfbyStaticBundle:Content:menu" with {'active': 'home'} %#}
+        {% endblock %}
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
   </body>

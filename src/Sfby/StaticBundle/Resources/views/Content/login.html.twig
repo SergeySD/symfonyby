@@ -1,0 +1,27 @@
+{% extends '::base.html.twig' %}
+{% block title %}Сообщество Symfony программистов в Беларуси{% endblock %}
+{% block body %}
+    {% if error %}
+        <div>{{ error.message }}</div>
+    {% endif %}
+    <form action="{{ path('login_check') }}" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="_username" value="{{ last_username }}" />
+        <br />
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="_password" />
+        <br />
+        {#
+            If you want to control the URL the user is redirected to on success (more details below)
+            <input type="hidden" name="_target_path" value="/account" />
+        #}
+        <input type="submit" value="login" /> <a href="{{ path('list') }}">back</a>
+    </form>
+    <div id="text">При поддержке <a href = 'http://acobby.com'>Acobby Ltd.</a></div> 
+{% endblock %}
+
+
+{% block menu %}
+    {% render "SfbyStaticBundle:Content:menu" with {'active': 'login'} %}
+{% endblock %}    
+    
