@@ -27,19 +27,19 @@ security:
             pattern:  ^/(_(profiler|wdt)|css|images|js)/
             security: false
             
-        secured_area:
-            pattern:    ^/
-            anonymous: ~
-            switch_user: { role: ROLE_ADMIN, parameter: _user }
-            form_login: 
-                login_path:  /login
-                check_path:  /login_check
-                default_target_path: /list
-                use_forward: true
-
-            logout:
-                path:   /logout
-                target: /list
+#        secured_area:
+#            pattern:    ^/
+#            anonymous: ~
+#            switch_user: { role: ROLE_ADMIN, parameter: _user }
+#            form_login: 
+#                login_path:  /login
+#                check_path:  /login_check
+#                default_target_path: /list
+#                use_forward: true
+#
+#            logout:
+#                path:   /logout
+#                target: /list
             
 
             #anonymous: ~

@@ -9,8 +9,8 @@
     <li><a href="{{path('create')}}">{{"Create"|trans}}</a></li>
     <li><a href="{{path('deleteAll')}}">{{"Delete All"|trans}}</a></li>
     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-        <li>{{"Welcome, %name%"|trans({'%name%':user.username})}} - <a href="{{path('logout')}}">{{"Logout"|trans}}</a></li>
+        <li>{{"Welcome, %name%"|trans({'%name%':user.username})}} - <a href="{{path('fos_user_security_logout')}}">{{"Logout"|trans}}</a></li>
     {% else %}
-        <li class="{{active=='login'?'active':''}}"><a href="{{path('login')}}">{{"Login"|trans}}</a></li>
+        <li class="{{active=='login'?'active':''}}"><a href="{{path('fos_user_security_login')}}">{{"Login"|trans}}</a></li>
     {% endif %}
 </ul>
