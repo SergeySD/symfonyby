@@ -1,0 +1,41 @@
+<div class="header">
+    <div class="top_nav">
+        <div class="author">
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <a href="#">Vasily Pupkin</a>
+                <a class="enter" href="{{path('fos_user_security_logout')}}"></a>
+            {% else %}
+                <a href="{{path('fos_user_security_login')}}">{{"header.login"|trans}}</a>
+                <a href="{{path('fos_user_registration_register')}}">{{"header.register"|trans}}</a>
+            {% endif %}
+        </div>
+        <ul>
+            <li class="{{app.session.locale=='ru'?'active':''}}"><a href="#">{{"header.ru"|trans}}</a></li>
+            <li class="{{app.session.locale=='en'?'active':''}}"><a href="#">{{"header.en"|trans}}</a></li>
+        </ul>
+    </div>
+    <div class="main_nav">
+        <div class="logo">
+            <a class="cufon" href="#">{{"header.title"|trans}}</a>
+            <a href="#">Symfony Framework</a>
+        </div>
+        <ul>                                
+            <li class="active"><a href="#"><span>{{"topmenu.blog"|trans}}</span></a>
+                <div class="submenu">
+                    <ul>          
+                        <li><a href="#">Все </a></li>
+                        <li class="active"><a href="#">Программирование </a></li>
+                        <li><a href="#">Оптимизация </a></li>
+                    </ul>
+                </div>
+            </li>
+            <li><a href="#"><span>{{"topmenu.people"|trans}}</span></a></li>
+            <li><a href="#"><span>{{"topmenu.forum"|trans}}</span></a></li>
+        </ul>
+        <div class="search">
+            <input type="text" class="text" />
+            <input type="submit" value="{{"header.search"|trans}}" class="submit" />
+        </div>
+    </div>
+
+</div>

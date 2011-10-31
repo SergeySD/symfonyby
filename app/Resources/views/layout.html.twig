@@ -8,10 +8,7 @@
     <meta name="keywords" content="{% block keywords %}symfony, project, framework, php, php5, open-source, mit, symphony{% endblock %}" /> 
     <meta name="language" content="ru" /> 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
-    {% block stylesheets %}
-        <link href="{{ asset('bundles/sfbystatic/css/style.css') }}" rel="stylesheet" type="text/css" media="all" />
-    {% endblock %}
+    
     <meta property="og:title" content="Сообщество Symfony программистов в Беларуси"/>
     <meta property="og:type" content="non_profit"/>
     <meta property="og:url" content="http://symfony.by/"/>
@@ -24,12 +21,56 @@
     <meta property="og:postal-code" content="220000"/>
     <meta property="og:country-name" content="BLR"/>
     <meta property="og:language" content="ru"/>
+    
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+    {% block assets %}
+        <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" media="all" />
+        <!--[if IE 7]>
+            <link rel="stylesheet" type="text/css" href="{{ asset('css/ie7.css') }}" />
+        <![endif]-->
+        <!--[if IE 8]>
+            <link rel="stylesheet" type="text/css" href="{{ asset('css/ie8.css') }}" />
+        <![endif]-->
+        <!--[if IE 6]>
+            <link rel="stylesheet" type="text/css" href="{{ asset('css/ie6.css') }}" />
+        <![endif]-->
+        <!--[if IE]>
+		 <style type="text/css">
+            .author{behavior:url("{{ asset('css/PIE.htc') }}");  border-radius: 2px 2px 0 0;}
+            .cloud{behavior:url("{{ asset('css/PIE.htc') }}");  border-radius: 2px 2px 2px 2px;}
+            .last_comment{behavior:url("{{ asset('css/PIE.htc') }}");  border-radius: 2px 2px 2px 2px;}
+            .users{behavior:url("{{ asset('css/PIE.htc') }}");  border-radius: 2px 2px 2px 2px;}
+            .info_profile .profile_img{behavior:url("{{ asset('css/PIE.htc') }}");  border-radius: 4px 4px 4px 4px;}
+            .info_profile .profile_img img{behavior:url("{{ asset('css/PIE.htc') }}");  border-radius: 2px 2px 2px 2px;}
+		 </style>
+ 	<![endif]-->
+    {% endblock %}
+    
+    {% block javascripts %}
+        <script type='text/javascript' src='{{ asset('js/jquery-1.6.4.min.js') }}'></script>
+        <script type='text/javascript' src='{{ asset('js/cufon-yui.js') }}'></script>
+        <script type='text/javascript' src='{{ asset('js/PT-Sans-Narrov_400-PT-Sans-Narrov_700-PT-Sans-Narrov_400-PT-Sans-Narrov_700.font.js') }}'></script>
+        <script type='text/javascript' src='{{ asset('js/cufon-code.js') }}'></script>
+    {% endblock %}
   </head> 
   <body>
-        {% block menu %}
-            {#% render "SfbyStaticBundle:Content:menu" with {'active': 'home'} %#}
-        {% endblock %}
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        <div class="wrap_all">
+            <div class="wrap">
+                {% render "SfbyDefaultBundle:Default:header" %}
+                <div class="content">
+                    <div class="to_left">
+                    {% block body %}{% endblock %}
+                    </div>
+                    <div class="to_right">
+                        {% render "SfbyBlogBundle:Default:tagCloud" %}
+                        {% render "SfbyBlogBundle:Default:newUsers" %}
+                        {% render "SfbyBlogBundle:Default:lastComments" %}
+                    </div>
+                </div>
+                <div class="clearer"></div>
+            </div>
+            <div class="pusher"></div>
+        </div>
+        {% render "SfbyDefaultBundle:Default:footer" %}
   </body>
-  </html>
+</html>

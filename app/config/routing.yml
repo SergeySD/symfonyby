@@ -1,5 +1,11 @@
-SfbyStaticBundle:
-    resource: "@SfbyStaticBundle/Resources/config/routing.yml"
+SfbyUserBundle:
+    resource: "@SfbyUserBundle/Controller/"
+    type:     annotation
+    prefix:   /user
+
+SfbyBlogBundle:
+    resource: "@SfbyBlogBundle/Controller/"
+    type:     annotation
     prefix:   /
 
 fos_user_security:

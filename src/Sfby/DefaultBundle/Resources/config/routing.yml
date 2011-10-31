@@ -1,0 +1,3 @@
+content:
+    resource: "@SfbyDefaultBundle/Controller/DefaultController.php"
+    type:     annotation

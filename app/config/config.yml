@@ -16,13 +16,6 @@ framework:
         default_locale: %locale%
         auto_start:     true
 
-services:
-    test_service: 
-        class: Sfby\StaticBundle\TestService
-        public: false
-        arguments: [@templating, "test"]
-    test:
-      alias: test_service
 # Twig Configuration
 twig:
     debug:            %kernel.debug%
@@ -68,4 +61,7 @@ jms_security_extra:
 fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb'
     firewall_name: main
-    user_class: Sfby\StaticBundle\Entity\User
+    user_class: Sfby\UserBundle\Entity\User
+    registration:
+        form:
+            type: sfby_user_registration
