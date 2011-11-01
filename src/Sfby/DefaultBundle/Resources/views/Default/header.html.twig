@@ -2,7 +2,7 @@
     <div class="top_nav">
         <div class="author">
             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                <a href="#">Vasily Pupkin</a>
+                <a href="{{path('fos_user_profile_show')}}">{{ user.name }}</a>
                 <a class="enter" href="{{path('fos_user_security_logout')}}"></a>
             {% else %}
                 <a href="{{path('fos_user_security_login')}}">{{"header.login"|trans}}</a>
@@ -10,17 +10,26 @@
             {% endif %}
         </div>
         <ul>
-            <li class="{{app.session.locale=='ru'?'active':''}}"><a href="#">{{"header.ru"|trans}}</a></li>
-            <li class="{{app.session.locale=='en'?'active':''}}"><a href="#">{{"header.en"|trans}}</a></li>
+            {% if app.session.locale=='ru' %}
+                <li class="active"><span>{{"header.ru"|trans}}</span></li>
+            {% else %}
+                <li><a href="{{path('locale', {'_locale': 'ru'})}}">{{"header.ru"|trans}}</a></li>
+            {% endif %}
+                
+            {% if app.session.locale=='en' %}
+                <li class="active"><span>{{"header.en"|trans}}</span></li>
+            {% else %}
+                <li><a href="{{path('locale', {'_locale': 'en'})}}">{{"header.en"|trans}}</a></li>
+            {% endif %}
         </ul>
     </div>
     <div class="main_nav">
         <div class="logo">
-            <a class="cufon" href="#">{{"header.title"|trans}}</a>
-            <a href="#">Symfony Framework</a>
+            <a class="cufon" href="{{path('homepage')}}">{{"header.title"|trans}}</a>
+            <a href="{{path('homepage')}}">Symfony Framework</a>
         </div>
         <ul>                                
-            <li class="active"><a href="#"><span>{{"topmenu.blog"|trans}}</span></a>
+            <li class="active"><a href="{{path('blog_index')}}"><span>{{"topmenu.blog"|trans}}</span></a>
                 <div class="submenu">
                     <ul>          
                         <li><a href="#">Все </a></li>

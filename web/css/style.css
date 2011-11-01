@@ -1,6 +1,6 @@
 /* CSS Document */
 
-* {margin:0; padding:0; outline: 0; vertical-align: baseline;}
+* {margin:0; padding:0; outline: 0; vertical-align: baseline; outline: none;}
 ol, ul {list-style: none;}
 h1, h2, h3, h4, h5 {font-weight: normal;}
 blockquote, q {quotes: none;}
@@ -25,9 +25,9 @@ body, html {height:100%;}
 		
 	.top_nav ul{ float: right; margin-right:47px; margin-top:16px;}
 		.top_nav ul li{ float:left; margin-left:22px;}
-			.top_nav ul li a{ font-family:Georgia, "Times New Roman", Times, serif; font-size:14px; line-height:19px; color:#313131;  text-decoration:none; }
-			.top_nav ul li:hover a{font-weight:bold; color:#FFF; }
-			.top_nav ul .active a{font-weight:bold; color:#FFF; }
+			.top_nav ul li a, .top_nav ul li span{ font-family:Georgia, "Times New Roman", Times, serif; font-size:14px; line-height:19px; color:#313131;  text-decoration:none; }
+			.top_nav ul li:hover a{color:#FFF; }
+			.top_nav ul .active span{font-weight:bold; color:#FFF;}
 	
 	.main_nav{ float:left; width:1001px; height:123px;  margin-left:-1px; background: #EDEDED url(../images/bg/main_nav.png) no-repeat left 6px; }
 		.logo{ float:left; width:237px; height:75px; margin-top:6px; text-align: center; padding-top: 17px; padding-left: 0px;}
@@ -165,12 +165,10 @@ body, html {height:100%;}
 .form_comment label{ float:left; width:86px; height:29px; text-align:right; color:#A5A5A5; font-family: "Trebuchet MS", Arial, Helvetica, sans-serif; font-size:12px; line-height:29px; }
 .form_comment input{ float:right; width:612px; height:25px; border:1px solid #D3D3D3; margin-right:-3px; }
 .form_comment textarea{ float:right; width:612px; height:145px; border:1px solid #D3D3D3; margin-right:-3px; }
-.submit{ float:right; height:50px; margin-top:8px; background:url(../images/left_submit.png) no-repeat left top; font-family:"Trebuchet MS", Arial, Helvetica, sans-serif; text-decoration:none; color:#fff; font-size:19px; line-height:46px; text-shadow:1px 1px 1px #7DA022;   }
-	.submit span{ float:left; height:50px; cursor:pointer; background:url(../images/submit.png) no-repeat right top; margin-left:24px; padding-right:20px; }
+
 /*end view*/
 /*profile*/
-.profile {width: 680px; float: left; margin: 38px 0px 0px 28px}
-.profile h1{border-bottom: dotted 1px #bababa; color: #313131 ; font-family: Georgia; font-size: 18px; line-height: 20px; padding-bottom: 16px; padding-left: 14px;}
+h1.dotted{border-bottom: dotted 1px #bababa; color: #313131 ; font-family: Georgia; font-size: 18px; line-height: 20px; padding-bottom: 16px; padding-left: 14px;}
 .info_profile{width: 680px; float: left; margin-top: 18px; border-bottom: dotted 1px #bababa; padding-bottom: 22px; margin-bottom: 27px;}
 .info_profile .profile_img{float: left; position:relative; width: 99px; height: 83px; background: #efefef; behavior:url(PIE.htc);  -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px 4px 4px 4px; padding: 4px; margin-right: 23px;}
 .info_profile .profile_img img{ position:relative; behavior:url(PIE.htc);  -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px 2px 2px 2px;}
@@ -198,22 +196,55 @@ body, html {height:100%;}
 		.bl_prof_1 ul li span.star span.p{color: #2d990b;}
 		.bl_prof_1 ul li span.star span.m{color: #b91e22;}
 /*end profile*/
-/*registration*/
-.main_registration{ float: left; width:686px; margin-top:30px;}
-.main_registration h3{ float: left; width:686px; }
-.main_registration .block{ float:left; margin-bottom:9px;}
-.main_registration label{ float:left; width:54px;  height:25px; margin-right:11px; font-family:"Trebuchet MS", Arial, Helvetica, sans-serif; font-size:12px; line-height:25px!important; color:#A5A5A5; text-align: right;}
-.main_registration label span{ color:#C23E3C; line-height:12px;}
-.main_registration input{ float:right; width:613px; height:25px;  border:1px solid #D3D3D3;  }
-.main_registration textarea{ float:right; width:613px; height:145px;  border:1px solid #D3D3D3; }
-.main_registration .submit{ margin-top:0px;}
+
+/*form*/
+.form{ float: left; width:686px; margin-top:30px;}
+.form h3{ float: left; width:686px; }
+.form .block{ float:left; margin-bottom:9px; width: 100%;}
+.form label{ float:left; width:54px;  height:25px; margin-right:11px; font-family:"Trebuchet MS", Arial, Helvetica, sans-serif; font-size:12px; line-height:25px!important; color:#A5A5A5; text-align: right;}
+.form label span{ color:#C23E3C; line-height:12px;}
+.form input { float:right; width:613px; height:25px;  border:1px solid #D3D3D3;  }
+.form input.checkbox { float: none; width: auto; height: auto; border: none; margin: 6px; }
+.form textarea{ float:right; width:613px; height:145px;  border:1px solid #D3D3D3; }
 .gray_submit{ float:left;  margin-top:4px; margin-left:16px; height:42px; margin-top:4px; background: url(../images/left_gray_submit.png) no-repeat left top; font-family:"Trebuchet MS", Arial, Helvetica, sans-serif; text-decoration:none; color:#313131; font-size:15px; line-height:42px; text-shadow:1px 1px 1px #fff;   }
 	.gray_submit span{ float:left; height:42px; cursor:pointer; background: url(../images/gray_submit.png) no-repeat right top; margin-left:20px; padding-right:20px; }
-.mb_20{ margin-bottom:20px!important;}
-/*registration*/
 
+.form ul.errors{ margin-left: 65px; margin-bottom: 20px; }
+.form .block ul.errors{ margin-bottom: 0px; }
+
+.submit{ 
+    float:right; 
+    height:50px; 
+    margin-top:8px; 
+    background:url(../images/left_submit.png) no-repeat left top; 
+}
+.submit input{ 
+    float:left; 
+    height:50px; 
+    cursor:pointer; 
+    background:url(../images/submit.png) no-repeat right top; 
+    margin-left:24px; 
+    padding-right:20px; 
+    width: auto;
+    font-family:"Trebuchet MS", Arial, Helvetica, sans-serif; 
+    text-decoration:none; 
+    color:#fff; 
+    font-size:19px; 
+    line-height:46px; 
+    text-shadow:1px 1px 1px #7DA022; 
+    border: none;
+}
+    
 label.required{ 
     background: url("../images/bg/required.png") no-repeat scroll right 5px transparent;
     padding-right: 5px;
     width: 50px;
+}
+
+ul.errors li{
+    color: #ff0000;
+}
+
+input.errors {
+    border: 1px solid #FF8C8C;
 }

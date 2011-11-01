@@ -11,22 +11,27 @@ security.login.username: "Логин"
 security.login.password: "Пароль"
 security.login.remember_me: Запомнить
 security.login.submit: Войти
+security.login.cancel: Отмена
 profile.flash.updated: Профиль пользователя обновлен
 
 # Profile
-profile.show.username: Имя пользователя
-profile.show.email: Электронная почта
+profile.show.username: Логин
+profile.show.email: E-mail
+profile.show.welcome: Добро пожаловать
+profile.show.created_at: Регистрация
 profile.edit.submit: Обновить
+profile.edit.cancel: Отмена
 
 # Password change
 change_password.submit: Изменить пароль
 change_password.flash.success: Пароль изменен
-
+change_password.cancel: Отмена
 # Registration
 registration.check_email: Письмо отправлено на адрес %email%. В нём содержится ссылка, по которой вы можете подтвердить свою регистрацию.
 registration.confirmed: Поздравляем %username%, ваш аккаунт подтвержден.
 #registration.back: Back to the originating page.
 registration.submit: Зарегистрироваться
+registration.cancel: Отмена
 registration.flash.user_created: Пользователь успешно создан
 
 registration.email: |
@@ -83,3 +88,24 @@ fos_user_change_password_form_current: "Текущий пароль"
 # sfby
 fos_user_registration_form_name: "Имя"
 fos_user_registration_form_about: "О себе"
+
+#errors
+"The username is already used": "Этот логин уже занят"
+"The email is already used": "Такой E-mail уже используется"
+"Please enter a username": "Введите логин"
+"The username is too short": "Логин слишком короткий"
+"The username is too long": "Логин слишком длинный"
+"Please enter an email": "Введите E-mail"
+"The email is too short": "E-mail слишком короткий"
+"The email is too long": "E-mail слишком длинный"
+"The email is not valid": "Не верно введен E-mail"
+"Please enter a password": "Введите пароль"
+"The password is too short": "Пароль слишком короткий"
+"Please enter a new password": "Введите новый пароль"
+"The new password is too short": "Новый пароль слишком короткий"
+"Please enter a name": "Введите имя"
+"The name is too short": "Имя слишком короткое"
+"The name is too long": "Имя слишком длинное"
+
+"Bad credentials": "Ошибка входа, введите правильные логин/пароль"
+"The presented password is invalid.": "Ошибка входа, введите правильные логин/пароль"

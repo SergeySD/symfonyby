@@ -1,18 +1,13 @@
 {% form_theme form theme%}
 <div class="articles">
     <h3>Регистрация</h3>
-    <div class="main_registration">
+    <div class="form">
         <form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
-            {{ form_errors(form) }}
-                
             {{ form_widget(form) }}
-                
             <div>
-                <a href="#" class="gray_submit"><span>Отмена</span></a>
-                <a href="#" class="submit"><span>{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}</span></a>
+                <a href="{{path('homepage')}}" class="gray_submit"><span>{{ 'registration.cancel'|trans({}, 'FOSUserBundle') }}</span></a>
+                <span class="submit"><input type="submit" value="{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}"></span>
             </div>
-                
-                {{ form_rest(form) }}
         </form>
     </div>
 </div>

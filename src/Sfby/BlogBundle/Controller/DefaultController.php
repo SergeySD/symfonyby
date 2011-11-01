@@ -9,10 +9,20 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/", name="homepage")
+     * @Route("/", name="blog_index")
      * @Template()
      */
     public function indexAction()
+    {
+        return array();
+    }
+    
+    /**
+     * component
+     * 
+     * @Template
+     */
+    public function listAction()
     {
         return array();
     }
@@ -45,5 +55,44 @@ class DefaultController extends Controller
     public function lastCommentsAction()
     {
         return array();
+    }
+    
+    /**
+     * component
+     * 
+     * @Template
+     */
+    public function userBlogsAction()
+    {
+        $user = $this->get('security.context')->getToken()->getUser();
+        return array(
+            
+        );
+    }
+    
+    /**
+     * component
+     * 
+     * @Template
+     */
+    public function userCommentsAction()
+    {
+        $user = $this->get('security.context')->getToken()->getUser();
+        return array(
+            
+        );
+    }
+    
+    /**
+     * component
+     * 
+     * @Template
+     */
+    public function userRatesAction()
+    {
+        $user = $this->get('security.context')->getToken()->getUser();
+        return array(
+            
+        );
     }
 }

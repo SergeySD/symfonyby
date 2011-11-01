@@ -1,15 +1,13 @@
 {% extends "FOSUserBundle::layout.html.twig" %}
 
 {% block fos_user_content %}
-{% if error %}
-    <div>{{ error }}</div>
-{% endif %}
-
-    
 <div class="articles">
     <h3>Логин</h3>
-    <div class="main_registration">
+    <div class="form">
         <form action="{{ path("fos_user_security_check") }}" method="POST">
+            {% if error %}
+                <ul class="errors"><li>{{ error|trans({}, 'FOSUserBundle') }}</li></ul>
+            {% endif %}
             <div class="block">
                 <label for="username">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>
                 <input type="text" id="username" name="_username" value="{{ last_username }}" />
@@ -19,11 +17,12 @@
                 <input type="password" id="password" name="_password" />
             </div>
             <div class="block">
-                <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                <input type="checkbox" id="remember_me" name="_remember_me" value="on" class="checkbox" />
                 <label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
             </div>
             <div>
-                <a href="#" class="submit"><span>{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}</span></a>
+                <a href="{{path('homepage')}}" class="gray_submit"><span>{{ 'security.login.cancel'|trans({}, 'FOSUserBundle') }}</span></a>
+                <span class="submit"><input type="submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}"></span>
             </div>
                 
         </form>

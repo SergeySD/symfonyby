@@ -1,11 +1,19 @@
-{% block field_row %}
+{% extends 'form_div_layout.html.twig' %}
+
+
+{% block field_errors %}
 {% spaceless %}
-<div class="block">
-    {{ form_label(form) }}
-    {{ form_widget(form) }}
-</div>
+    {% if errors|length > 0 %}
+    <ul class="errors">
+        {% for error in errors %}
+            <li>{{ error.messageTemplate|trans(error.messageParameters, 'FOSUserBundle') }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
 {% endspaceless %}
-{% endblock field_row %}
+{% endblock field_errors %}    
+    
+
 
 {% block field_label %}
 {% spaceless %}
@@ -15,4 +23,36 @@
     <label for="{{id}}" {% for attrname,attrvalue in attr %} {{attrname}}="{{attrvalue}}"{% endfor %}>{{ id|trans([], 'FOSUserBundle') }}</label>
 {% endspaceless %}
 {% endblock field_label %}
+
     
+    
+{% block field_widget %}
+{% spaceless %}
+    {% if errors|length > 0 %}
+        {% set attr = attr|merge({'class': attr.class|default('') ~ ' errors'}) %}
+    {% endif %}
+    {% set type = type|default('text') %}
+    <input type="{{ type }}" {{ block('widget_attributes') }} value="{{ value }}" />
+{% endspaceless %}
+{% endblock field_widget %}    
+    
+
+    
+{% block field_row %}
+{% spaceless %}
+<div class="block">
+    {{ form_errors(form) }}
+    {{ form_label(form) }}
+    {{ form_widget(form) }}
+</div>
+{% endspaceless %}
+{% endblock field_row %}    
+    
+    
+    
+{% block checkbox_widget %}
+{% spaceless %}
+    {% set attr = attr|merge({'class': attr.class|default('') ~ ' checkbox'}) %}
+    {{ parent() }}
+{% endspaceless %}
+{% endblock checkbox_widget %}    

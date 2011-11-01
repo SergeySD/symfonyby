@@ -1,3 +1,7 @@
+SfbyDefaultBundle:
+    resource: "@SfbyDefaultBundle/Controller/"
+    type:     annotation
+    
 SfbyUserBundle:
     resource: "@SfbyUserBundle/Controller/"
     type:     annotation
@@ -6,7 +10,7 @@ SfbyUserBundle:
 SfbyBlogBundle:
     resource: "@SfbyBlogBundle/Controller/"
     type:     annotation
-    prefix:   /
+    prefix:   /blogs
 
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"

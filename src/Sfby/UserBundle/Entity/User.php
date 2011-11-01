@@ -27,7 +27,9 @@ class User extends BaseUser
      * @var string $name
      *
      * @ORM\Column(name="name", type="string", length=255, nullable=false)
-     * @Assert\NotBlank
+     * @Assert\NotBlank(groups={"Registration", "Profile"}, message="Please enter a name")
+     * @Assert\MinLength(limit=2, groups={"Registration", "Profile"}, message="The name is too short")
+     * @Assert\MaxLength(limit=255, groups={"Registration", "Profile"}, message="The name is too long")
      */
     protected $name;
 
