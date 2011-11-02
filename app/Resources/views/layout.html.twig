@@ -56,7 +56,7 @@
   <body>
         <div class="wrap_all">
             <div class="wrap">
-                {% render "SfbyDefaultBundle:Default:header" %}
+                {% render "SfbyDefaultBundle:Default:header" with {"request": app.request} %}
                 <div class="content">
                     <div class="to_left">
                     {% block body %}{% endblock %}

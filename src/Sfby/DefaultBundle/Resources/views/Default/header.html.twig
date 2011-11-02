@@ -29,7 +29,7 @@
             <a href="{{path('homepage')}}">Symfony Framework</a>
         </div>
         <ul>                                
-            <li class="active"><a href="{{path('blog_index')}}"><span>{{"topmenu.blog"|trans}}</span></a>
+            <li class="{{active=='blogs'?'active':''}}"><a href="{{path('blog_index')}}"><span>{{"topmenu.blog"|trans}}</span></a>
                 <div class="submenu">
                     <ul>          
                         <li><a href="#">Все </a></li>
@@ -38,8 +38,8 @@
                     </ul>
                 </div>
             </li>
-            <li><a href="#"><span>{{"topmenu.people"|trans}}</span></a></li>
-            <li><a href="#"><span>{{"topmenu.forum"|trans}}</span></a></li>
+            <li class="{{active=='people'?'active':''}}"><a href="#"><span>{{"topmenu.people"|trans}}</span></a></li>
+            <li class="{{active=='forum'?'active':''}}"><a href="#"><span>{{"topmenu.forum"|trans}}</span></a></li>
         </ul>
         <div class="search">
             <input type="text" class="text" />

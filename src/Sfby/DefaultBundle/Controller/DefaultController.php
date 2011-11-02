@@ -41,8 +41,20 @@ class DefaultController extends Controller
      */
     public function headerAction()
     {
+//        var_dump($this->getRequest()->get('request'));
+        $route = $this->getRequest()->get('request')->get('_route');
+        $controller = $this->getRequest()->get('request')->get('_controller');
+
+        $active = '';
+        $subactive = '';
+        if (stripos($controller, 'BlogBundle'))
+        {
+            $active = 'blogs';
+        }
         return array(
-            'user' => $this->get('security.context')->getToken()->getUser()
+            'user' => $this->get('security.context')->getToken()->getUser(),
+            'active' => $active,
+            'subactive' => $subactive,
         );
     }
     /**
