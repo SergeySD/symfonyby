@@ -12,15 +12,18 @@ security.login.password: "Пароль"
 security.login.remember_me: Запомнить
 security.login.submit: Войти
 security.login.cancel: Отмена
-profile.flash.updated: Профиль пользователя обновлен
 
 # Profile
+profile.show.welcome: Добро пожаловать
 profile.show.username: Логин
 profile.show.email: E-mail
-profile.show.welcome: Добро пожаловать
+profile.show.about: О себе
 profile.show.created_at: Регистрация
+profile.show.edit: Изменить
+profile.edit.title: Редактирование профиля
 profile.edit.submit: Обновить
 profile.edit.cancel: Отмена
+profile.flash.updated: Профиль пользователя обновлен
 
 # Password change
 change_password.submit: Изменить пароль
@@ -68,11 +71,11 @@ layout.register: Регистрация
 layout.logged_in_as: Вы вошли как %username%
 
 # Form field labels
-fos_user_group_form_name: "Название группы:"
+fos_user_group_form_name: "Название группы"
 
-fos_user_profile_form_user_username: "Логин:"
-fos_user_profile_form_user_email: "Электронная почта:"
-fos_user_profile_form_current: "Текущий пароль:"
+fos_user_profile_form_user_username: "Логин"
+fos_user_profile_form_user_email: "E-mail"
+fos_user_profile_form_current: "Текущий пароль"
 
 fos_user_registration_form_username: "Логин"
 fos_user_registration_form_email: "E-mail"
@@ -89,6 +92,10 @@ fos_user_change_password_form_current: "Текущий пароль"
 fos_user_registration_form_name: "Имя"
 fos_user_registration_form_about: "О себе"
 
+fos_user_profile_form_user_name: "Имя"
+fos_user_profile_form_user_file: "Изображение"
+fos_user_profile_form_user_about: "О себе"
+
 #errors
 "The username is already used": "Этот логин уже занят"
 "The email is already used": "Такой E-mail уже используется"
@@ -103,9 +110,13 @@ fos_user_registration_form_about: "О себе"
 "The password is too short": "Пароль слишком короткий"
 "Please enter a new password": "Введите новый пароль"
 "The new password is too short": "Новый пароль слишком короткий"
-"Please enter a name": "Введите имя"
-"The name is too short": "Имя слишком короткое"
-"The name is too long": "Имя слишком длинное"
+profile.error.name_is_blank: "Введите имя"
+profile.error.name_short: "Имя слишком короткое"
+profile.error.name_long: "Имя слишком длинное"
+"The entered password is invalid.": "Не верный пароль"
+
+profile.error.image_type: "Файл не является изображением"
+profile.error.image_size: "Файл слишком большой ({{ size }}). Размер не должен быть больше {{ limit }}"
 
 "Bad credentials": "Ошибка входа, введите правильные логин/пароль"
 "The presented password is invalid.": "Ошибка входа, введите правильные логин/пароль"

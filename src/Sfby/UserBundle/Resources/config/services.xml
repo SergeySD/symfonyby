@@ -24,6 +24,11 @@
             <tag name="form.type" alias="sfby_user_registration" />
             <argument>%fos_user.model.user.class%</argument>
         </service>
+        
+        <service id="sfby_user.profile.form.type" class="Sfby\UserBundle\Form\ProfileFormType">
+            <tag name="form.type" alias="sfby_user_profile" />
+            <argument>%fos_user.model.user.class%</argument>
+        </service>
 
     </services>
 

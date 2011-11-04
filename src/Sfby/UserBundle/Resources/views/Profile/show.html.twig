@@ -1,0 +1,32 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% block fos_user_content %}
+    <h1 class="dotted">{{ 'profile.show.welcome'|trans({}, 'FOSUserBundle') }}, <strong>{{ user.name }}</strong></h1>
+    <div class="info_profile">
+        <div class="profile_img">
+            {% if user.image %}
+                <img src="{{ user.webPath|apply_filter('profile_avatar') }}" />
+            {% else %}
+                <img src="{{asset('images/prof.png')}}" alt="" />
+            {% endif %}
+        </div>
+        <div class="description_profile">
+            <ul>
+                <li>{{ 'profile.show.created_at'|trans({}, 'FOSUserBundle') }}: <span>{{ user.createdAt|date('d.m.Y') }}</span></li>
+                <li>{{ 'profile.show.username'|trans({}, 'FOSUserBundle') }}: <span>{{ user.username }}</span></li>
+                <li>{{ 'profile.show.email'|trans({}, 'FOSUserBundle') }}: <span>{{ user.email }}</span></li>
+                <li><a href="{{path('fos_user_profile_edit')}}">{{ "profile.show.edit"|trans({}, 'FOSUserBundle') }}</a></li>
+            </ul>
+        </div>
+
+        <div class="clearer"></div>
+        <div>
+            <strong>{{ 'profile.show.about'|trans({}, 'FOSUserBundle') }}:</strong> {{ user.about }}
+        </div>
+    </div>
+
+    {% render "SfbyBlogBundle:Default:userBlogs" %}
+    {% render "SfbyBlogBundle:Default:userComments" %}
+    {% render "SfbyBlogBundle:Default:userRates" %}
+
+{% endblock fos_user_content %}

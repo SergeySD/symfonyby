@@ -201,15 +201,15 @@ h1.dotted{border-bottom: dotted 1px #bababa; color: #313131 ; font-family: Georg
 .form{ float: left; width:686px; margin-top:30px;}
 .form h3{ float: left; width:686px; }
 .form .block{ float:left; margin-bottom:9px; width: 100%;}
-.form label{ float:left; width:54px;  height:25px; margin-right:11px; font-family:"Trebuchet MS", Arial, Helvetica, sans-serif; font-size:12px; line-height:25px!important; color:#A5A5A5; text-align: right;}
+.form label{ float:left; width:100px;  height:25px; margin-right:11px; font-family:"Trebuchet MS", Arial, Helvetica, sans-serif; font-size:12px; line-height:25px!important; color:#A5A5A5; text-align: right;}
 .form label span{ color:#C23E3C; line-height:12px;}
-.form input { float:right; width:613px; height:25px;  border:1px solid #D3D3D3;  }
+.form input { float:right; width:566px; height:25px;  border:1px solid #D3D3D3;  }
 .form input.checkbox { float: none; width: auto; height: auto; border: none; margin: 6px; }
-.form textarea{ float:right; width:613px; height:145px;  border:1px solid #D3D3D3; }
+.form textarea{ float:right; width:566px; height:145px;  border:1px solid #D3D3D3; }
 .gray_submit{ float:left;  margin-top:4px; margin-left:16px; height:42px; margin-top:4px; background: url(../images/left_gray_submit.png) no-repeat left top; font-family:"Trebuchet MS", Arial, Helvetica, sans-serif; text-decoration:none; color:#313131; font-size:15px; line-height:42px; text-shadow:1px 1px 1px #fff;   }
 	.gray_submit span{ float:left; height:42px; cursor:pointer; background: url(../images/gray_submit.png) no-repeat right top; margin-left:20px; padding-right:20px; }
 
-.form ul.errors{ margin-left: 65px; margin-bottom: 20px; }
+.form ul.errors{ margin-left: 118px; margin-bottom: 20px; }
 .form .block ul.errors{ margin-bottom: 0px; }
 
 .submit{ 
@@ -238,7 +238,6 @@ h1.dotted{border-bottom: dotted 1px #bababa; color: #313131 ; font-family: Georg
 label.required{ 
     background: url("../images/bg/required.png") no-repeat scroll right 5px transparent;
     padding-right: 5px;
-    width: 50px;
 }
 
 ul.errors li{
@@ -247,4 +246,13 @@ ul.errors li{
 
 input.errors {
     border: 1px solid #FF8C8C;
+}
+
+div.flash {
+    border: 1px solid #95C31C;
+    background-color: #E8FFAD;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-family:Georgia, "Times New Roman", Times, serif;
 }

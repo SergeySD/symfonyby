@@ -10,16 +10,16 @@
             {% endif %}
         </div>
         <ul>
-            {% if app.session.locale=='ru' %}
+            {% if app.session.locale=='ru_ru' %}
                 <li class="active"><span>{{"header.ru"|trans}}</span></li>
             {% else %}
-                <li><a href="{{path('locale', {'_locale': 'ru'})}}">{{"header.ru"|trans}}</a></li>
+                <li><a href="{{path('locale', {'_locale': 'ru_ru'})}}">{{"header.ru"|trans}}</a></li>
             {% endif %}
                 
-            {% if app.session.locale=='en' %}
+            {% if app.session.locale=='en_us' %}
                 <li class="active"><span>{{"header.en"|trans}}</span></li>
             {% else %}
-                <li><a href="{{path('locale', {'_locale': 'en'})}}">{{"header.en"|trans}}</a></li>
+                <li><a href="{{path('locale', {'_locale': 'en_us'})}}">{{"header.en"|trans}}</a></li>
             {% endif %}
         </ul>
     </div>
@@ -31,11 +31,7 @@
         <ul>                                
             <li class="{{active=='blogs'?'active':''}}"><a href="{{path('blog_index')}}"><span>{{"topmenu.blog"|trans}}</span></a>
                 <div class="submenu">
-                    <ul>          
-                        <li><a href="#">Все </a></li>
-                        <li class="active"><a href="#">Программирование </a></li>
-                        <li><a href="#">Оптимизация </a></li>
-                    </ul>
+                    {% render "SfbyBlogBundle:Default:submenu" with {'active': (active=='blogs')?subactive:null} %}
                 </div>
             </li>
             <li class="{{active=='people'?'active':''}}"><a href="#"><span>{{"topmenu.people"|trans}}</span></a></li>

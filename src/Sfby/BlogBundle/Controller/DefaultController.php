@@ -5,6 +5,10 @@ namespace Sfby\BlogBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+
+use Sfby\BlogBundle\Entity\Category;
+use Sfby\BlogBundle\Entity\Blog;
 
 class DefaultController extends Controller
 {
@@ -14,7 +18,22 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        return array();
+        $rep = $this->getDoctrine()->getRepository('Sfby\BlogBundle\Entity\Blog');
+        return array(
+            'blogs' => $rep->findAll(),
+        );
+    }
+    
+    /**
+     * @Route("/{slug}", name="blog_category")
+     * @Template("SfbyBlogBundle:Default:index.html.twig")
+     */
+
+    public function categoryAction(Category $category)
+    {
+        return array(
+            'blogs' => $category->getBlogs(),
+        );
     }
     
     /**
@@ -22,9 +41,27 @@ class DefaultController extends Controller
      * 
      * @Template
      */
-    public function listAction()
+    public function submenuAction()
     {
-        return array();
+        $rep = $this->getDoctrine()->getRepository('Sfby\BlogBundle\Entity\Category');
+        
+        return array(
+            'categories' => $rep->findAll(),
+            'active' => $this->getRequest()->get('active'),
+        );
+    }
+    
+    /**
+     * component
+     * 
+     * @Template("SfbyBlogBundle:Default:list.html.twig")
+     */
+    public function recentAction()
+    {
+        $rep = $this->getDoctrine()->getRepository('Sfby\BlogBundle\Entity\Blog');
+        return array(
+            'blogs' => $rep->findAll(),
+        );
     }
     
     /**

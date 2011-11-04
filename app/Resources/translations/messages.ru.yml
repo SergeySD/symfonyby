@@ -6,5 +6,15 @@ header.login: Логин
 header.register: Регистрация
 
 topmenu.blog: Блоги
+topmenu.blog.all: Все
 topmenu.people: Люди
 topmenu.forum: Форум
+
+blog_category.error.name_is_blank: "Введите название"
+blog_category.error.name_short: "Название слишком короткое"
+blog_category.error.name_long: "Название слишком длинное"
+
+blog.error.name_is_blank: "Введите название"
+blog.error.name_short: "Название слишком короткое"
+blog.error.name_long: "Название слишком длинное"
+

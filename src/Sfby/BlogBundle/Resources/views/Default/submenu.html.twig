@@ -1,0 +1,6 @@
+<ul>          
+    <li class="{{active=='all'?'active':''}}"><a href="{{path('blog_index')}}">{{"topmenu.blog.all"|trans}}</a></li>
+    {% for category in categories %}
+        <li class="{{active==category.slug?'active':''}}"><a href="{{path('blog_category', {'slug': category.slug})}}">{{category.name}}</a></li>
+    {% endfor %}
+</ul>

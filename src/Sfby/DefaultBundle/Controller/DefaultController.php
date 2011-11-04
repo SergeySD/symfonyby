@@ -3,16 +3,11 @@
 namespace Sfby\DefaultBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Security\Core\SecurityContext;
 use Symfony\Component\HttpFoundation\Request;
-use \Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Sfby\DefaultBundle\Entity\Product;
-use Sfby\DefaultBundle\Entity\Category;
-use Sfby\DefaultBundle\Form\ProductType;
-use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use JMS\SecurityExtraBundle\Annotation\Secure;
 
 
@@ -20,7 +15,7 @@ class DefaultController extends Controller
 {
     /**
      * @Route("/", name="homepage")
-     * @Route("/{_locale}", name="locale", defaults={"_locale"="0"}, requirements={"_locale"="en|ru"})
+     * @Route("/{_locale}", name="locale", defaults={"_locale"="0"}, requirements={"_locale"="en_us|ru_ru"})
      * @Template()
      */
     public function indexAction()
@@ -50,6 +45,8 @@ class DefaultController extends Controller
         if (stripos($controller, 'BlogBundle'))
         {
             $active = 'blogs';
+            $subactive = $this->getRequest()->get('request')->get('slug');
+            $subactive = $subactive ? $subactive : 'all';
         }
         return array(
             'user' => $this->get('security.context')->getToken()->getUser(),

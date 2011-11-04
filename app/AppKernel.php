@@ -22,6 +22,10 @@ class AppKernel extends Kernel
             new Sfby\DefaultBundle\SfbyDefaultBundle(),
             new Sfby\BlogBundle\SfbyBlogBundle(),
             new Sfby\UserBundle\SfbyUserBundle(),
+            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+            new Symfony\Bundle\DoctrineFixturesBundle\DoctrineFixturesBundle(),
+            new Avalanche\Bundle\ImagineBundle\AvalancheImagineBundle(),
+
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test', 'zzz'))) {

@@ -3,6 +3,6 @@
 {% block title %}Сообщество Symfony программистов в Беларуси{% endblock %}
 {% block body %}
 
-{% render "SfbyBlogBundle:Default:list" %}
+{% include "SfbyBlogBundle:Default:list.html.twig" with {'blogs': blogs} %}
 
 {% endblock %}

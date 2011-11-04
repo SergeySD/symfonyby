@@ -15,6 +15,6 @@
     mailer_user=       
     mailer_password=   
 
-    locale=            ru
+    locale=            ru_ru
 
     secret=            ThisTokenIsNotSoSecretChangeIt

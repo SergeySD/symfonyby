@@ -65,3 +65,28 @@ fos_user:
     registration:
         form:
             type: sfby_user_registration
+    profile:
+        form:
+            type: sfby_user_profile
+            
+stof_doctrine_extensions:
+    default_locale: %locale%
+    orm:
+        default:
+            timestampable: true
+            sluggable: true
+            translatable: true
+    
+avalanche_imagine:
+    web_root:     %kernel.root_dir%/../web
+    cache_prefix: cache
+    #one of the three drivers: `gd`, `imagick`, `gmagick`
+    driver:       gd 
+    filters:
+        profile_avatar:
+            #The `mode` can be either `outbound` or `inset`.
+            type:    thumbnail
+            options: { size: [99, 83], mode: outbound }            
+        profile_form_avatar:
+            type:    thumbnail
+            options: { size: [25, 25], mode: outbound }            
