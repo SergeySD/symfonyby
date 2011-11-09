@@ -19,8 +19,9 @@ class DefaultController extends Controller
     public function indexAction()
     {
         $rep = $this->getDoctrine()->getRepository('Sfby\BlogBundle\Entity\Blog');
+        $blogs = $rep->findAll();
         return array(
-            'blogs' => $rep->findAll(),
+            'blogs' => $blogs,
         );
     }
     
@@ -71,7 +72,11 @@ class DefaultController extends Controller
      */
     public function tagCloudAction()
     {
-        return array();
+        $rep = $this->getDoctrine()->getRepository('Sfby\BlogBundle\Entity\Tag');
+        $arr = $rep->findForCloud();
+        return array(
+            'tags' => $arr,
+        );
     }
     
     /**

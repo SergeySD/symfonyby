@@ -1,16 +1,16 @@
 {% for blog in blogs %}
 <div class="articles">
-    <h3>{{blog.name}}</h3>
+    <h3>{{blog.title}}</h3>
     <p class="author_article">Автор: {{blog.user.name}} </p>
     <div class="text_article">
         <p class="last">{{blog.text}}</p>
         <a class="read_next" href="#">читать далее</a>
         <div class="clearer"></div>
     </div>
-    <ul class="tag">            
-        <li><a href="#">информация </a></li>
-        <li><a href="#">безопасность </a></li>
-        <li><a href="#">компьютеры </a></li>
+    <ul class="tag">  
+        {% for tag in blog.tags %}
+            <li><a href="#">{{tag.name}}</a></li>
+        {% endfor %}
     </ul>
     <div class="comment">
         <div class="rating">

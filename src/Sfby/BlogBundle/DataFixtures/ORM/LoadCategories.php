@@ -24,6 +24,7 @@ class LoadCategories extends AbstractFixture implements OrderedFixtureInterface,
         
         $category = new Category();
         $category->setName('Программирование');
+        $category->setLocale('ru_ru'); 
         $manager->persist($category);
         $manager->flush();
         
@@ -36,6 +37,7 @@ class LoadCategories extends AbstractFixture implements OrderedFixtureInterface,
         
         $category = new Category();
         $category->setName('Оптимизация');
+        $category->setLocale('ru_ru'); 
         $manager->persist($category);
         $manager->flush();
         
@@ -48,6 +50,7 @@ class LoadCategories extends AbstractFixture implements OrderedFixtureInterface,
         
         $category = new Category();
         $category->setName('Безопасность');
+        $category->setLocale('ru_ru'); 
         $manager->persist($category);
         $manager->flush();
         

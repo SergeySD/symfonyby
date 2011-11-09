@@ -33,11 +33,12 @@ class Category implements Translatable
      * @Assert\NotBlank(message="blog_category.error.name_is_blank")
      * @Assert\MinLength(limit=2, message="blog_category.error.name_short")
      * @Assert\MaxLength(limit=255, message="blog_category.error.name_long")
+     * @Gedmo\Sluggable(slugField="slug")
      */
     protected $name;
 
     /**
-     * @Gedmo\Slug(fields={"name"})
+     * @Gedmo\Slug
      * @ORM\Column(name="slug", type="string", length=255, unique=true)
      */
     private $slug;

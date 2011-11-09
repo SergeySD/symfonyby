@@ -6,14 +6,14 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Sfby\UserBundle\Entity\User;
-use Gedmo\Translatable\Translatable;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Sfby\BlogBundle\Repository\BlogRepository")
  * @ORM\Table(name="sfby_blog")
  * @ORM\HasLifecycleCallbacks()
  */
-class Blog implements Translatable
+class Blog
 {
 
     /**
@@ -39,37 +39,37 @@ class Blog implements Translatable
 
 
     /**
-     * @var string $name
+     * @var string $title
      *
-     * @ORM\Column(name="name", type="string", length=255, nullable=false)
-     * @Gedmo\Translatable
+     * @ORM\Column(name="title", type="string", length=255, nullable=false)
      * @Assert\NotBlank(message="blog.error.name_is_blank")
      * @Assert\MinLength(limit=2, message="blog.error.name_short")
      * @Assert\MaxLength(limit=255, message="blog.error.name_long")
+     * @Gedmo\Sluggable(slugField="slug")
      */
-    protected $name;
+    protected $title;
+    
+    /**
+     * @var string $short_text
+     *
+     * @ORM\Column(name="short_text", type="text")
+     * @Assert\NotBlank(message="blog.error.text_is_blank")
+     */
+    protected $short_text;
     
     /**
      * @var string $text
      *
      * @ORM\Column(name="text", type="text")
-     * @Gedmo\Translatable
      * @Assert\NotBlank(message="blog.error.text_is_blank")
      */
     protected $text;
 
     /**
-     * @Gedmo\Slug(fields={"name"})
+     * @Gedmo\Slug
      * @ORM\Column(name="slug", type="string", length=255, unique=true)
      */
-    private $slug;
-    
-    /**
-     * @Gedmo\Locale
-     * Used locale to override Translation listener`s locale
-     * this is not a mapped field of entity metadata, just a simple property
-     */
-    private $locale;
+    protected $slug;
     
     /**
      * @var datetime $createdAt
@@ -78,7 +78,7 @@ class Blog implements Translatable
      * @Gedmo\Timestampable(on="create")
      * 
      */
-    private $createdAt;
+    protected $createdAt;
 
     /**
      * @var datetime $updatedAt
@@ -86,11 +86,19 @@ class Blog implements Translatable
      * @ORM\Column(name="updated_at", type="datetime", nullable=true)
      * @Gedmo\Timestampable(on="update")
      */
-    private $updatedAt;
+    protected $updatedAt;
+    
+    /**
+     * @ORM\ManyToMany(targetEntity="Tag", mappedBy="blogs")
+     * @ORM\JoinTable(name="sfby_tag2blog")
+     */
+    protected $tags;
+
+    
 
     public function __construct()
     {
-        // your own logic
+        $this->tags = new ArrayCollection();
     }
 
     function __toString()
@@ -98,11 +106,8 @@ class Blog implements Translatable
       return $this->getName();
     }
     
-    public function setLocale($locale)
-    {
-        $this->locale = $locale;
-    }
-    
+
+
     /**
      * Get id
      *
@@ -114,23 +119,43 @@ class Blog implements Translatable
     }
 
     /**
-     * Set name
+     * Set title
      *
-     * @param string $name
+     * @param string $title
      */
-    public function setName($name)
+    public function setTitle($title)
     {
-        $this->name = $name;
+        $this->title = $title;
     }
 
     /**
-     * Get name
+     * Get title
      *
      * @return string 
      */
-    public function getName()
+    public function getTitle()
     {
-        return $this->name;
+        return $this->title;
+    }
+
+    /**
+     * Set short_text
+     *
+     * @param text $shortText
+     */
+    public function setShortText($shortText)
+    {
+        $this->short_text = $shortText;
+    }
+
+    /**
+     * Get short_text
+     *
+     * @return text 
+     */
+    public function getShortText()
+    {
+        return $this->short_text;
     }
 
     /**
@@ -251,5 +276,26 @@ class Blog implements Translatable
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Add tags
+     *
+     * @param Sfby\BlogBundle\Entity\Tag $tags
+     */
+    public function addTag(\Sfby\BlogBundle\Entity\Tag $tags)
+    {
+        $tags->addBlog($this); // synchronously updating inverse side
+        $this->tags[] = $tags;
+    }
+
+    /**
+     * Get tags
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getTags()
+    {
+        return $this->tags;
     }
 }
