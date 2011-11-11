@@ -103,7 +103,7 @@ class Blog
 
     function __toString()
     {
-      return $this->getName();
+      return $this->getTitle();
     }
     
 

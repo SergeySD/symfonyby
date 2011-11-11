@@ -87,3 +87,27 @@
 [AvalancheImagineBundle]
     git=http://github.com/avalanche123/AvalancheImagineBundle.git
     target=bundles/Avalanche/Bundle/ImagineBundle
+
+[SonatajQueryBundle]
+    git=http://github.com/sonata-project/SonatajQueryBundle.git
+    target=/bundles/Sonata/jQueryBundle
+
+[SonataUserBundle]
+    git=http://github.com/sonata-project/SonataUserBundle.git
+    target=/bundles/Sonata/UserBundle
+
+[SonataAdminBundle]
+    git=http://github.com/sonata-project/SonataAdminBundle.git
+    target=/bundles/Sonata/AdminBundle
+
+[MenuBundle]
+    git=http://github.com/knplabs/KnpMenuBundle.git
+    target=/bundles/Knp/Bundle/MenuBundle
+
+[KnpMenu]
+    git=https://github.com/knplabs/KnpMenu.git
+    target=/knp/menu
+
+[SonataDoctrineORMAdminBundle]
+    git=http://github.com/sonata-project/SonataDoctrineORMAdminBundle.git
+    target=/bundles/Sonata/DoctrineORMAdminBundle

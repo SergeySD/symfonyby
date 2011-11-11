@@ -103,7 +103,7 @@ class Blog
 
     function __toString()
     {
-      return $this->getName();
+      return $this->getTitle();
     }
     
 
@@ -285,8 +285,10 @@ class Blog
      */
     public function addTag(\Sfby\BlogBundle\Entity\Tag $tags)
     {
-        $tags->addBlog($this); // synchronously updating inverse side
-        $this->tags[] = $tags;
+        if (!$this->getTags()->contains($tags)) {
+            $this->getTags()->add($tags);
+            $tags->addBlog($this);
+        }
     }
 
     /**
@@ -297,5 +299,17 @@ class Blog
     public function getTags()
     {
         return $this->tags;
+    }
+    
+    /**
+     * Set related tags
+     *
+     * @param aarrat $groups
+     */
+    public function setTags($tags)
+    {
+        foreach ($tags as $tag){
+            $this->addTag($tag);
+        }
     }
 }

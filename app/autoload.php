@@ -20,6 +20,13 @@ $loader->registerNamespaces(array(
     'Gedmo'            => __DIR__.'/../vendor/gedmo-doctrine-extensions/lib',
     'Imagine'          => __DIR__.'/../vendor/imagine/lib',
     'Avalanche'        => __DIR__.'/../vendor/bundles',
+    
+    'Sonata'                         => __DIR__.'/../vendor/bundles',
+    'Knp'                             => array(
+        __DIR__.'/../vendor/bundles',
+        __DIR__.'/../vendor/knp/menu/src',
+    ),
+
 
 
 ));

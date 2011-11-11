@@ -49,6 +49,10 @@ class Tag
         $this->blogs = new ArrayCollection();
     }
     
+    function __toString()
+    {
+      return $this->getName();
+    }
 
     /**
      * Get id

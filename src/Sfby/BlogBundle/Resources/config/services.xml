@@ -4,17 +4,45 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
-    <!--
     <parameters>
-        <parameter key="sfby_blog.example.class">Sfby\BlogBundle\Example</parameter>
+        <parameter key="sfby.blog.admin.blog.class">Sfby\BlogBundle\Admin\BlogAdmin</parameter>
+        <parameter key="sfby.blog.admin.blog.controller">SonataAdminBundle:CRUD</parameter>
+        <parameter key="sfby.blog.admin.blog.entity">Sfby\BlogBundle\Entity\Blog</parameter>
+        
+        <parameter key="sfby.blog.admin.tag.class">Sfby\BlogBundle\Admin\TagAdmin</parameter>
+        <parameter key="sfby.blog.admin.tag.controller">SonataAdminBundle:CRUD</parameter>
+        <parameter key="sfby.blog.admin.tag.entity">Sfby\BlogBundle\Entity\Tag</parameter>
+        
+        <parameter key="sfby.blog.admin.category.class">Sfby\BlogBundle\Admin\CategoryAdmin</parameter>
+        <parameter key="sfby.blog.admin.category.controller">SonataAdminBundle:CRUD</parameter>
+        <parameter key="sfby.blog.admin.category.entity">Sfby\BlogBundle\Entity\Category</parameter>
     </parameters>
-
+    
     <services>
-        <service id="sfby_blog.example" class="%sfby_blog.example.class%">
-            <argument type="service" id="service_id" />
-            <argument>plain_value</argument>
-            <argument>%parameter_name%</argument>
+        <service id="sfby.blog.admin.blog" class="%sfby.blog.admin.blog.class%">
+            <tag name="sonata.admin" manager_type="orm" group="sfby_blog" label="Posts" />
+            <argument />
+            <argument>%sfby.blog.admin.blog.entity%</argument>
+            <argument>%sfby.blog.admin.blog.controller%</argument>
+            <call method="setUserManager">
+                <argument type="service" id="fos_user.user_manager" />
+            </call>
         </service>
+        
+        <service id="sfby.blog.admin.tag" class="%sfby.blog.admin.tag.class%">
+            <tag name="sonata.admin" manager_type="orm" group="sfby_blog" label="Tags" />
+            <argument />
+            <argument>%sfby.blog.admin.tag.entity%</argument>
+            <argument>%sfby.blog.admin.tag.controller%</argument>
+        </service>
+        
+        <service id="sfby.blog.admin.category" class="%sfby.blog.admin.category.class%">
+            <tag name="sonata.admin" manager_type="orm" group="sfby_blog" label="Categories" />
+            <argument />
+            <argument>%sfby.blog.admin.category.entity%</argument>
+            <argument>%sfby.blog.admin.category.controller%</argument>
+        </service>
+        
     </services>
-    -->
+    
 </container>

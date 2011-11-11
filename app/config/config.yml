@@ -90,3 +90,14 @@ avalanche_imagine:
         profile_form_avatar:
             type:    thumbnail
             options: { size: [25, 25], mode: outbound }            
+            
+sonata_admin:
+    dashboard_groups:
+        sfby_blog: 
+            label: Blog
+            items: ~
+        sfby_user: 
+            label: Users
+            items: ~
+
+            

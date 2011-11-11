@@ -25,6 +25,13 @@ class AppKernel extends Kernel
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new Symfony\Bundle\DoctrineFixturesBundle\DoctrineFixturesBundle(),
             new Avalanche\Bundle\ImagineBundle\AvalancheImagineBundle(),
+            
+            new Sonata\jQueryBundle\SonatajQueryBundle(),
+            new Sonata\AdminBundle\SonataAdminBundle(),
+            new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
+            new Knp\Bundle\MenuBundle\KnpMenuBundle(),
+            new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
+
 
         );
 

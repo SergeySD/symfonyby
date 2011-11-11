@@ -4,30 +4,50 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
-    <!--
+    
     <parameters>
-        <parameter key="sfby_user.example.class">Sfby\UserBundle\Example</parameter>
+        <parameter key="sfby_user.registration.form.type">Sfby\UserBundle\Form\RegistrationFormType</parameter>
+        <parameter key="sfby_user.profile.form.type">Sfby\UserBundle\Form\ProfileFormType</parameter>
+        
+        <parameter key="sfby.user.admin.user.class">Sfby\UserBundle\Admin\UserAdmin</parameter>
+        <parameter key="sfby.user.admin.user.controller">SonataAdminBundle:CRUD</parameter>
+        <parameter key="sfby.user.admin.user.entity">Sfby\UserBundle\Entity\User</parameter>
+        
+        <parameter key="sfby.user.admin.group.class">Sfby\UserBundle\Admin\GroupAdmin</parameter>
+        <parameter key="sfby.user.admin.group.controller">SonataAdminBundle:CRUD</parameter>
+        <parameter key="sfby.user.admin.group.entity">Sfby\UserBundle\Entity\Group</parameter>
+        
     </parameters>
 
-    <services>
-        <service id="sfby_user.example" class="%sfby_user.example.class%">
-            <argument type="service" id="service_id" />
-            <argument>plain_value</argument>
-            <argument>%parameter_name%</argument>
-        </service>
-    </services>
-    -->
     
     <services>
 
-        <service id="sfby_user.registration.form.type" class="Sfby\UserBundle\Form\RegistrationFormType">
+        <service id="sfby_user.registration.form.type" class="%sfby_user.registration.form.type%">
             <tag name="form.type" alias="sfby_user_registration" />
             <argument>%fos_user.model.user.class%</argument>
         </service>
-        
-        <service id="sfby_user.profile.form.type" class="Sfby\UserBundle\Form\ProfileFormType">
+        <service id="sfby_user.profile.form.type" class="%sfby_user.profile.form.type%">
             <tag name="form.type" alias="sfby_user_profile" />
             <argument>%fos_user.model.user.class%</argument>
+        </service>
+        
+        
+        <service id="sfby.user.admin.user" class="%sfby.user.admin.user.class%">
+            <tag name="sonata.admin" manager_type="orm" group="sfby_user" label="Users" />
+            <argument />
+            <argument>%sfby.user.admin.user.entity%</argument>
+            <argument>%sfby.user.admin.user.controller%</argument>
+            
+            <call method="setUserManager">
+                <argument type="service" id="fos_user.user_manager" />
+            </call>
+        </service>
+        
+        <service id="sfby.user.admin.group" class="%sfby.user.admin.group.class%">
+            <tag name="sonata.admin" manager_type="orm" group="sfby_user" label="Groups" />
+            <argument />
+            <argument>%sfby.user.admin.group.entity%</argument>
+            <argument>%sfby.user.admin.group.controller%</argument>
         </service>
 
     </services>
