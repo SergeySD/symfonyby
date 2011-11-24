@@ -9,6 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 use Sfby\BlogBundle\Entity\Category;
 use Sfby\BlogBundle\Entity\Blog;
+use Sfby\BlogBundle\Entity\Tag;
 
 class DefaultController extends Controller
 {
@@ -34,6 +35,44 @@ class DefaultController extends Controller
     {
         return array(
             'blogs' => $category->getBlogs(),
+        );
+    }
+    
+    /**
+     * @Route("/tag/{slug}", name="blog_by_tag")
+     * @Template("SfbyBlogBundle:Default:index.html.twig")
+     */
+
+    public function tagAction(Tag $tag)
+    {
+        return array(
+            'blogs' => $tag->getBlogs(),
+        );
+    }
+    
+    /**
+     * @Route("/view/{slug}", name="blog_view")
+     * @Template
+     */
+
+    public function viewAction(Blog $blog)
+    {
+        return array(
+            'blog' => $blog,
+        );
+    }
+    
+    /**
+     * component
+     * 
+     * @Template
+     */
+    public function blogCommentsAction(Blog $blog)
+    {
+        $user = $this->get('security.context')->getToken()->getUser();
+        return array(
+            'blog' => $blog,
+            'user' => $user
         );
     }
     

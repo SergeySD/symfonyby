@@ -1,7 +1,7 @@
 <div class="cloud">
     <ul>
         {% for arr in tags %}
-            <li><a href="#" class="st{{arr[1]}}">{{arr[0].name}}</a></li>
+            <li><a href="{{path('blog_by_tag', {'slug': arr[0].slug})}}" class="st{{arr[1]}}">{{arr[0].name}}</a></li>
         {% endfor %}
     </ul>
 </div>

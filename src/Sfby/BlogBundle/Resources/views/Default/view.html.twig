@@ -1,0 +1,26 @@
+{% extends '::layout.html.twig' %}
+
+{% block title %}Сообщество Symfony программистов в Беларуси{% endblock %}
+{% block body %}
+
+<div class="articles line">
+    <h3>{{blog.title}}</h3>
+    <p class="author_article">{{"blog.author"|trans}}: {{blog.user.name}} </p>
+    <div class="text_article no_line">
+        <p><i>{{blog.shortText}}</i></p>
+        <p>{{blog.text}}</p>
+    </div>
+
+    <div class="comment">
+        <div class="rating">
+            <a href="#"class="minus"></a>
+            <span>135</span>
+            <a href="#" class="plus"></a>
+        </div>
+    </div>  
+</div>
+
+{% render "SfbyBlogBundle:Default:blogComments" with {"blog": blog} %}
+
+
+{% endblock %}
