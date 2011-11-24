@@ -113,12 +113,12 @@ class User extends BaseUser
     {
         if (null === $this->file) return;
         $this->file->move($this->getAbsoluteUploadDir(), $this->image);
-        unset($this->file);
-        if ($file = $this->getAbsolutePath($this->old_image)) 
+        $this->file = null;
+        if ($this->old_image && $file = $this->getAbsolutePath($this->old_image)) 
         {
             @unlink($file);
         }
-        unset($this->old_image);
+        $this->old_image = null;
     }
     /**
      * @ORM\PostRemove()
