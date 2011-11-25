@@ -104,15 +104,15 @@ body, html {height:100%;}
 		.users ul li a:hover{text-decoration: none;}
 		.users ul li img{ margin-right: 3px; float:left;}
 .last_comment{ position:relative; float: left; width:212px; padding:18px 15px 18px 18px; border: solid 1px #e7e7e7;   behavior:url(PIE.htc);  -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px 2px 2px 2px; background: url("../images/comment_last.png") center 15px no-repeat; padding-top: 75px; }
+.last_comment .dsq-widget {margin-top: 20px; }
 .last_comment h3{font-size: 18px; line-height: 20px; color: #313131; font-family: Georgia; margin-bottom: 21px;}
 	.last_comment ul{width: 100%; margin-bottom: 16px;}
 	.last_comment ul.last{margin-bottom: 0px;}
-		.last_comment ul li{display: inline;}
+		.last_comment ul li{ }
 			.last_comment ul li a{ font-size: 12px; color: #a5a5a5; line-height: 15px; }
 			.last_comment ul li a:hover{text-decoration: none;}
 			.last_comment ul li a.com_1{color: #a5a5a5;}
-			.last_comment ul li a.com_2{color: #9ec33d;}
-			.last_comment ul li a.com_3{color: #2682bb;}
+			.last_comment ul li .dsq-widget-meta a{color: #9ec33d;}
 			.last_comment ul li span{  width: 9px; height: 7px;}
 .bottom_info .logo {    float: left;    margin-top: 10px;   padding-left: 0;   padding-top: 17px;     text-align: center;     width: 154px; height: auto; margin-bottom: 17px;}
 .bottom_info .logo a{font-size: 17px; line-height: 17px;}
@@ -257,3 +257,5 @@ div.flash {
     font-size: 16px;
     font-family:Georgia, "Times New Roman", Times, serif;
 }
+
+#disqus_thread a{color: #2682BB;}
