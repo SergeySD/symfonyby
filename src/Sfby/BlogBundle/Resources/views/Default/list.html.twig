@@ -18,7 +18,7 @@
             <span>135</span>
             <a href="#" class="plus"></a>
         </div>
-        <a href="#">{{"blog.comments"|trans}} (1)</a>
+        <a href="{{url('blog_view', {'slug': blog.slug})}}#disqus_thread" data-disqus-identifier="{{blog.id}}">{{"blog.comments"|trans}}</a>
     </div>
 </div>
 {% endfor %}
