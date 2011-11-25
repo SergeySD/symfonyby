@@ -1,0 +1,10 @@
+{% extends '::layout.html.twig' %}
+
+{% block title %}Сообщество Symfony программистов в Беларуси{% endblock %}
+{% block body %}
+
+<h1>Свежие записи > Метка {{ tag }}</h1>
+
+{% include "SfbyBlogBundle:Default:list.html.twig" with {'blogs': blogs} %}
+
+{% endblock %}
