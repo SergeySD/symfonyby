@@ -1,15 +1,15 @@
 {% for blog in blogs %}
 <div class="articles">
     <h3>{{blog.title}}</h3>
-    <p class="author_article">Автор: {{blog.user.name}} </p>
+    <p class="author_article">{{"blog.author"|trans}}: {{blog.user.name}} </p>
     <div class="text_article">
         <p class="last">{{blog.text}}</p>
-        <a class="read_next" href="#">читать далее</a>
+        <a class="read_next" href="{{path('blog_view', {'slug': blog.slug})}}">{{"blog.read_more"|trans}}</a>
         <div class="clearer"></div>
     </div>
     <ul class="tag">  
         {% for tag in blog.tags %}
-            <li><a href="#">{{tag.name}}</a></li>
+            <li><a href="{{path('blog_by_tag', {'slug': tag.slug})}}">{{tag.name}}</a></li>
         {% endfor %}
     </ul>
     <div class="comment">
@@ -18,7 +18,7 @@
             <span>135</span>
             <a href="#" class="plus"></a>
         </div>
-        <a href="#">Комментарии (1)</a>
+        <a href="#">{{"blog.comments"|trans}} (1)</a>
     </div>
 </div>
 {% endfor %}

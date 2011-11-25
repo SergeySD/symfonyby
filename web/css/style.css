@@ -136,7 +136,7 @@ body, html {height:100%;}
 .line{background:url(../images/line.png) repeat-x bottom left; padding-bottom:12px; margin-bottom:0px!important;}
  	.line .comment{ margin-bottom:0px;}
 .no_line{ background:none; margin-bottom:34px; }
-.wrap_comment_author{ float:left; margin-left:28px; margin-top:25px; width:680px; margin-bottom:14px;}
+.wrap_comment_author{ float:left; margin-top:25px; width:680px; margin-bottom:14px;}
 .wrap_comment_author .block{ float:left; padding-bottom:6px;  background:url(../images/line.png) repeat-x bottom left; margin-bottom:10px; width:677px; margin-left:3px;}
 .comment_author{ float:left;  background:url(../images/line.png) repeat-x bottom left; padding-bottom:10px; margin-bottom:6px; padding-left:11px;  }
 .wrap_comment_author h3{font-family: Georgia, "Times New Roman", Times, serif; font-size:20px; line-height:20px; color:#313131; margin-bottom:16px; padding-left:14px;}
@@ -146,14 +146,14 @@ body, html {height:100%;}
 	.user img{ float:left; margin-right:6px; }
 	.user .author_article{ float:left; font-family: Georgia, "Times New Roman", Times, serif; font-size:12px; line-height:26px; color:#A5A5A5; font-style:italic; margin-bottom:0px; }
 .subcomment{ float:left; width:589px; margin-left:48px; min-height:37px; padding-left:40px; padding-top:15px; background:url(../images/enter.png) no-repeat left 13px; margin-bottom:5px;}
-.subblock{ float:left; width:590px; background:#EFEFEF; border:1px solid #E5E5E5;  behavior:url(PIE.htc);  -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius:4px; padding-bottom:7px;}
+.subblock{ float:left; width:587px; background:#EFEFEF; border:1px solid #E5E5E5;  behavior:url(PIE.htc);  -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius:4px; padding-bottom:7px;}
 .subblock .wrap_rating{width:571px; }
 .subblock .user{width:562px; }
 .subcomment .wrap_comment_author{ margin-top:9px; margin-left:6px; margin-bottom:0px; width:auto;}
 .subcomment .block{ width:571px;}
-.wrap_form_comment{ float:left; width:708px;}
-.wrap_form_comment h3{font-family: Georgia, "Times New Roman", Times, serif; font-size:20px; line-height:20px; color:#313131; margin-left:42px; margin-bottom:24px; }
-.registration{ float:right; width:593px; padding-top:18px; margin-right:-3px; margin-bottom:35px;  background:#EFEFEF; border:1px solid #E5E5E5;  behavior:url(PIE.htc);  -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius:4px;}
+.wrap_form_comment{ float:left; width:680px;}
+.wrap_form_comment h3{font-family: Georgia, "Times New Roman", Times, serif; font-size:20px; line-height:20px; color:#313131; margin-left:14px; margin-bottom:24px; }
+.registration{ float:right; width:560px; padding-top:18px; margin-bottom:35px;  background:#EFEFEF; border:1px solid #E5E5E5;  behavior:url(PIE.htc);  -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius:4px;}
 .registration .block{ float:left; margin-bottom:9px;}
 
 	.registration label{ float:left; width: 91px; height:25px; text-align:right; font-family: "Trebuchet MS", Arial, Helvetica, sans-serif; font-size:12px; line-height:24px; color:#A5A5A5; }
@@ -161,11 +161,11 @@ body, html {height:100%;}
 	.registration input{ float:left; width:392px; height:25px; border:1px solid #D3D3D3; margin-left:9px;}
 	.registration a{ float:right; color:#2682BB; margin-right: 100px; margin-top:11px; margin-bottom:28px; font-family: Georgia, "Times New Roman", Times, serif; font-style:italic; font-size:18px; line-height:18px; text-decoration:underline; }
 	.registration a:hover{ text-decoration:none; }
-.form_comment{ float:left; width:708px;}
-.form_comment .block{ float:left;  width:708px; margin-bottom:9px; }
+.form_comment{ float:left; width:680px;}
+.form_comment .block{ float:left;  width:680px; margin-bottom:9px; }
 .form_comment label{ float:left; width:86px; height:29px; text-align:right; color:#A5A5A5; font-family: "Trebuchet MS", Arial, Helvetica, sans-serif; font-size:12px; line-height:29px; }
-.form_comment input{ float:right; width:612px; height:25px; border:1px solid #D3D3D3; margin-right:-3px; }
-.form_comment textarea{ float:right; width:612px; height:145px; border:1px solid #D3D3D3; margin-right:-3px; }
+.form_comment input{ float:right; width:580px; height:25px; border:1px solid #D3D3D3; margin-right:-3px; }
+.form_comment textarea{ float:right; width:580px; height:145px; border:1px solid #D3D3D3; margin-right:-3px; }
 
 /*end view*/
 /*profile*/

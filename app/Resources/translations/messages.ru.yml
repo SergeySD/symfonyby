@@ -18,3 +18,8 @@ blog.error.name_is_blank: "Введите название"
 blog.error.name_short: "Название слишком короткое"
 blog.error.name_long: "Название слишком длинное"
 
+blog.author: "Автор"
+blog.read_more: "читать далее"
+blog.comments: "Комментарии"
+blog.comments.submit: "Отправить"
+
