@@ -1,12 +1,4 @@
-{% if tag %}
-  <h1>Свежие записи > Метка {{ tag }}</h1>
-{% else %}
-  {% if category %}
-  <h1>Свежие записи > {{ category }}</h1>
-  {% else %}
-  <h1>Свежие записи</h1>
-  {% endif %}
-{% endif %}
+
 {% for blog in blogs %}
 <div class="articles">
     <h3>{{blog.title}}</h3>

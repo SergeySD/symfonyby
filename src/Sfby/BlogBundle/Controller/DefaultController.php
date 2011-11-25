@@ -23,36 +23,32 @@ class DefaultController extends Controller
         $blogs = $rep->findAll();
         return array(
             'blogs' => $blogs,
-            'tag'=>null,
-            'category'=>null
         );
     }
     
     /**
      * @Route("/{slug}", name="blog_category")
-     * @Template("SfbyBlogBundle:Default:index.html.twig")
+     * @Template("SfbyBlogBundle:Default:categoryList.html.twig")
      */
 
     public function categoryAction(Category $category)
     {
         return array(
             'category' => $category,
-            'blogs' => $category->getBlogs(),
-            'tag'=>null
+            'blogs' => $category->getBlogs()
         );
     }
     
     /**
      * @Route("/tag/{slug}", name="blog_by_tag")
-     * @Template("SfbyBlogBundle:Default:index.html.twig")
+     * @Template("SfbyBlogBundle:Default:tagList.html.twig")
      */
 
     public function tagAction(Tag $tag)
     {
         return array(
             'tag' => $tag,
-            'blogs' => $tag->getBlogs(),
-            'category'=>null
+            'blogs' => $tag->getBlogs()
         );
     }
     
