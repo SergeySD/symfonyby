@@ -105,7 +105,7 @@
     target=/bundles/Knp/Bundle/MenuBundle
 
 [KnpMenu]
-    git=https://github.com/knplabs/KnpMenu.git
+    git=http://github.com/knplabs/KnpMenu.git
     target=/knp/menu
 
 [SonataDoctrineORMAdminBundle]

@@ -20,6 +20,8 @@ framework:
 twig:
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
+    globals:
+        disqus_public_key: %disqus_public_key% 
 
 # Assetic Configuration
 assetic:
@@ -100,4 +102,3 @@ sonata_admin:
             label: Users
             items: ~
 
-            
