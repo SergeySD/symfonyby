@@ -23,6 +23,8 @@ class DefaultController extends Controller
         $blogs = $rep->findAll();
         return array(
             'blogs' => $blogs,
+            'tag'=>null,
+            'category'=>null
         );
     }
     
@@ -34,7 +36,9 @@ class DefaultController extends Controller
     public function categoryAction(Category $category)
     {
         return array(
+            'category' => $category,
             'blogs' => $category->getBlogs(),
+            'tag'=>null
         );
     }
     
@@ -46,7 +50,9 @@ class DefaultController extends Controller
     public function tagAction(Tag $tag)
     {
         return array(
+            'tag' => $tag,
             'blogs' => $tag->getBlogs(),
+            'category'=>null
         );
     }
     
@@ -101,6 +107,8 @@ class DefaultController extends Controller
         $rep = $this->getDoctrine()->getRepository('Sfby\BlogBundle\Entity\Blog');
         return array(
             'blogs' => $rep->findAll(),
+            'tag'=>null,
+            'category'=>null
         );
     }
     
