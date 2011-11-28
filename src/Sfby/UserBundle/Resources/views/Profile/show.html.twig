@@ -25,7 +25,7 @@
         </div>
     </div>
 
-    {% render "SfbyBlogBundle:Default:userBlogs" %}
+    {% render "SfbyBlogBundle:Default:userBlogs" with {"user": user} %}
     {% render "SfbyBlogBundle:Default:userComments" %}
     {% render "SfbyBlogBundle:Default:userRates" %}
 

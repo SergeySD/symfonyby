@@ -143,11 +143,11 @@ class DefaultController extends Controller
      * 
      * @Template
      */
-    public function userBlogsAction()
+    public function userBlogsAction($user)
     {
-        $user = $this->get('security.context')->getToken()->getUser();
+        $blogs = $user->getBlogs();
         return array(
-            
+            'blogs' => $blogs,
         );
     }
     

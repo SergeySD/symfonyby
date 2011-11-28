@@ -93,7 +93,7 @@ class User extends BaseUser
     protected $groups;
     /**
      * 
-     * @ORM\OneToMany(targetEntity="Sfby\BlogBundle\Entity\Blog", mappedBy="fos_user", cascade={"all"})
+     * @ORM\OneToMany(targetEntity="Sfby\BlogBundle\Entity\Blog", mappedBy="user", cascade={"all"})
      */
     protected $blogs;
 
