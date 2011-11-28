@@ -20,7 +20,7 @@
     {% if required %}
         {% set attr = attr|merge({'class': attr.class|default('') ~ ' required'}) %}
     {% endif %}
-    <label for="{{id}}" {% for attrname,attrvalue in attr %} {{attrname}}="{{attrvalue}}"{% endfor %}>{{ id|trans([], 'FOSUserBundle') }}</label>
+    <label for="{{id}}" {% for attrname,attrvalue in attr %} {{attrname}}="{{attrvalue}}"{% endfor %}>{{ id|trans }}</label>
 {% endspaceless %}
 {% endblock field_label %}
 

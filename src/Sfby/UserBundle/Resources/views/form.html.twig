@@ -1,0 +1,11 @@
+{% extends '::form.html.twig' %}
+
+
+{% block field_label %}
+{% spaceless %}
+    {% if required %}
+        {% set attr = attr|merge({'class': attr.class|default('') ~ ' required'}) %}
+    {% endif %}
+    <label for="{{id}}" {% for attrname,attrvalue in attr %} {{attrname}}="{{attrvalue}}"{% endfor %}>{{ id|trans([], 'FOSUserBundle') }}</label>
+{% endspaceless %}
+{% endblock field_label %}

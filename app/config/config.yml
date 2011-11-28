@@ -21,7 +21,10 @@ twig:
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
     globals:
-        disqus_public_key: %disqus_public_key% 
+        disqus_public_key: %disqus_public_key%
+    form:
+        resources:
+            - ::form.html.twig
 
 # Assetic Configuration
 assetic:

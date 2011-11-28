@@ -23,3 +23,12 @@ blog.read_more: "читать далее"
 blog.comments: "Комментарии"
 blog.comments.submit: "Отправить"
 
+blog.edit.title: "Редактирование"
+blog.edit.cancel: "Отмена"
+blog.edit.submit: "Готово"
+
+sfby_blog_form_title: "Название"
+sfby_blog_form_short_text: "Сокращенный текст"
+sfby_blog_form_text: "Текст"
+sfby_blog_form_category: "Категория"
+sfby_blog_form_tags: "Тэги"
