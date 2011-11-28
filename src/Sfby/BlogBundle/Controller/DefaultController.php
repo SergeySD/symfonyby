@@ -28,25 +28,27 @@ class DefaultController extends Controller
     
     /**
      * @Route("/{slug}", name="blog_category")
-     * @Template("SfbyBlogBundle:Default:index.html.twig")
+     * @Template("SfbyBlogBundle:Default:categoryList.html.twig")
      */
 
     public function categoryAction(Category $category)
     {
         return array(
-            'blogs' => $category->getBlogs(),
+            'category' => $category,
+            'blogs' => $category->getBlogs()
         );
     }
     
     /**
      * @Route("/tag/{slug}", name="blog_by_tag")
-     * @Template("SfbyBlogBundle:Default:index.html.twig")
+     * @Template("SfbyBlogBundle:Default:tagList.html.twig")
      */
 
     public function tagAction(Tag $tag)
     {
         return array(
-            'blogs' => $tag->getBlogs(),
+            'tag' => $tag,
+            'blogs' => $tag->getBlogs()
         );
     }
     
@@ -101,6 +103,8 @@ class DefaultController extends Controller
         $rep = $this->getDoctrine()->getRepository('Sfby\BlogBundle\Entity\Blog');
         return array(
             'blogs' => $rep->findAll(),
+            'tag'=>null,
+            'category'=>null
         );
     }
     

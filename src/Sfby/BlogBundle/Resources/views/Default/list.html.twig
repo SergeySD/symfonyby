@@ -1,3 +1,4 @@
+
 {% for blog in blogs %}
 <div class="articles">
     <h3>{{blog.title}}</h3>
@@ -15,10 +16,10 @@
     <div class="comment">
         <div class="rating">
             <a href="#"class="minus"></a>
-            <span>135</span>
+            <span id="likes{{blog.id}}">0</span>
             <a href="#" class="plus"></a>
         </div>
-        <a href="{{url('blog_view', {'slug': blog.slug})}}#disqus_thread" data-disqus-identifier="{{blog.id}}">{{"blog.comments"|trans}}</a>
+        <a href="{{url('blog_view', {'slug': blog.slug})}}#disqus_thread" data-disqus-identifier="{{blog.id}}">{#"blog.comments"|trans#}</a>
     </div>
 </div>
 {% endfor %}
