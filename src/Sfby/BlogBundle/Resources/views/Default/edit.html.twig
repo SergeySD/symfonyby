@@ -1,0 +1,20 @@
+{% extends '::layout.html.twig' %}
+
+{% block title %}Сообщество Symfony программистов в Беларуси{% endblock %}
+{% block body %}
+
+{% form_theme form '::form.html.twig' %}
+<div class="articles">
+    <h3>{{ 'blog.edit.title'|trans}}</h3>
+    <div class="form">
+        <form action="{{ path('blog_edit', {'id': blog.id}) }}" {{ form_enctype(form) }} method="POST">
+            {{ form_widget(form) }}
+            <div>
+                <a href="{{path('fos_user_profile_show')}}" class="gray_submit"><span>{{ 'blog.edit.cancel'|trans }}</span></a>
+                <span class="submit"><input type="submit" value="{{ 'blog.edit.submit'|trans }}"></span>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

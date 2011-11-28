@@ -16,9 +16,15 @@
         <parameter key="sfby.blog.admin.category.class">Sfby\BlogBundle\Admin\CategoryAdmin</parameter>
         <parameter key="sfby.blog.admin.category.controller">SonataAdminBundle:CRUD</parameter>
         <parameter key="sfby.blog.admin.category.entity">Sfby\BlogBundle\Entity\Category</parameter>
+        
+        <parameter key="sfby.blog.form.type.richtext.class">Sfby\BlogBundle\Form\Extension\Core\Type\RichTextType</parameter>
     </parameters>
     
     <services>
+        <service id="sfby.blog.form.type.richtext" class="%sfby.blog.form.type.richtext.class%">
+            <tag name="form.type" alias="richtext" />
+        </service>
+        
         <service id="sfby.blog.admin.blog" class="%sfby.blog.admin.blog.class%">
             <tag name="sonata.admin" manager_type="orm" group="sfby_blog" label="Posts" />
             <argument />

@@ -56,3 +56,11 @@
     {{ parent() }}
 {% endspaceless %}
 {% endblock checkbox_widget %}    
+    
+    
+{% block richtext_widget %}
+{% spaceless %}
+    какой-нибудь маркап/даун :)
+    <textarea {{ block('widget_attributes') }}>{{ value }}</textarea>
+{% endspaceless %}
+{% endblock richtext_widget %}

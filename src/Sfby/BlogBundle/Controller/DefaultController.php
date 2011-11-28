@@ -6,10 +6,14 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
+use FOS\UserBundle\Model\UserInterface;
 
 use Sfby\BlogBundle\Entity\Category;
 use Sfby\BlogBundle\Entity\Blog;
 use Sfby\BlogBundle\Entity\Tag;
+
+use Sfby\BlogBundle\Form\BlogType;
 
 class DefaultController extends Controller
 {
@@ -61,6 +65,27 @@ class DefaultController extends Controller
     {
         return array(
             'blog' => $blog,
+        );
+    }
+    
+    /**
+     * @Route("/edit/{id}", name="blog_edit")
+     * @Template
+     */
+
+    public function editAction(Blog $blog)
+    {
+        $user = $this->container->get('security.context')->getToken()->getUser();
+        if (!is_object($user) || !$user instanceof UserInterface) {
+            throw new AccessDeniedException('This user does not have access to this section.');
+        }
+        
+        $form = $this->createForm(new BlogType(), $blog);
+
+        
+        return array(
+            'blog' => $blog,
+            'form' => $form->createView(),
         );
     }
     
