@@ -105,3 +105,6 @@ sonata_admin:
             label: Users
             items: ~
 
+knp_markdown:
+    parser:
+        service: markdown.parser.sfby

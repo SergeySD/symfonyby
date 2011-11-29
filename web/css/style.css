@@ -11,6 +11,7 @@ table {border-collapse: collapse; border-spacing: 0;}
 td {vertical-align: top;}
 body {font-family: "trebuchet ms",arial,verdana,tahoma,helvetica,sans-serif; font-size:12px; background: #EDEDED  url(../images/bg/body.png) repeat-y center top;  }
 body, html {height:100%;}
+pre { margin-bottom: 14px; }
 *html .wrap_all { height: 100%; }
 .pusher {clear:both; height:216px;}
 .clearer {height:1px; font-size:1px; line-height:1px; clear:both; float:none;}
@@ -82,10 +83,10 @@ body, html {height:100%;}
 		.text_article p{font-family: "Trebuchet MS", Arial, Helvetica, sans-serif; font-size:13px; line-height:18px; color:#737373; margin-bottom:20px;}
 		.articles .last{ margin-bottom:0px;}
 		.read_next{ float:left; width:86px; height:16px; font-family: Georgia, "Times New Roman", Times, serif; font-size:12px; line-height:15px; color:#FEFEFE; font-style:italic; text-decoration:none; background:#B1CF64 url(../images/icon_read_next.png) no-repeat 95px 4px; padding-left:5px; padding-right:12px; margin-top:9px; margin-bottom:13px;  }
-		.tag{ float:left; width:680px; padding-left:14px; margin-bottom:9px;}
-			.tag li{ float:left; margin-right:16px; }
-				.tag li a{ float:left; font-family: Georgia, "Times New Roman", Times, serif; font-size:12px; line-height:19px; color:#A5A5A5; font-style:italic; text-decoration:none;}
-				.tag li a:hover{ text-decoration:underline;}
+		ul.tag{ float:left; width:680px; padding-left:14px; margin-bottom:9px;}
+			ul.tag li{ float:left; margin-right:16px; }
+				ul.tag li a{ float:left; font-family: Georgia, "Times New Roman", Times, serif; font-size:12px; line-height:19px; color:#A5A5A5; font-style:italic; text-decoration:none;}
+				ul.tag li a:hover{ text-decoration:underline;}
 		.comment{ float:left; height:24px; width:682px; background:url(../images/bg/comment.png) no-repeat left top; padding-top:10px; margin-left:1px;  }
 			.rating{ float:left; margin-left:14px; }
 				.rating .minus{ float:left; padding-left:0px; margin-left:0px; text-decoration:none; width:13px; height:14px; background:url(../images/bg/minus.png) no-repeat left top; font-family:Georgia, "Times New Roman", Times, serif; font-size:12px; line-height:13px; font-style:italic; color:#8A8A8A; text-align:center;}

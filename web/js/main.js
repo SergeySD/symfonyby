@@ -15,8 +15,6 @@ function updateVotes(data)
     {
         var cnt = res[i].likes - res[i].dislikes;
         var id = res[i].identifiers[0];
-        console.log(cnt)
-        console.log(id)
         if ($('#likes'+id))
             $('#likes'+id).html(cnt);
     }
