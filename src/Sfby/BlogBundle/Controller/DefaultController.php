@@ -80,8 +80,20 @@ class DefaultController extends Controller
             throw new AccessDeniedException('This user does not have access to this section.');
         }
         
+        $request = $this->getRequest();
         $form = $this->createForm(new BlogType(), $blog);
+        
+        $request = $this->getRequest();
+        
+        if ($request->getMethod() == 'POST') {
+            $form->bindRequest($request);
 
+            if ($form->isValid()) {
+                $em = $this->getDoctrine()->getEntityManager();
+                $em->persist($blog);
+                $em->flush();
+            }
+        }
         
         return array(
             'blog' => $blog,

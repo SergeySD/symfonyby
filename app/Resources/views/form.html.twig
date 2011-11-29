@@ -56,11 +56,22 @@
     {{ parent() }}
 {% endspaceless %}
 {% endblock checkbox_widget %}    
-    
-    
+
+
+
 {% block richtext_widget %}
+  {% block javascripts_markItUp %}
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('js/markitup/skins/simple/style.css') }}" />
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('js/markitup/sets/textile/style.css') }}" />
+    <script type='text/javascript' src='{{ asset('js/markitup/jquery.markitup.js') }}'></script>
+    <script type='text/javascript' src='{{ asset('js/markitup/sets/textile/set.js') }}'></script>
+        <script type='text/javascript'>
+          jQuery(document).ready(function() {
+            $('#{{id}}').markItUp(mySettings);
+          });
+        </script>
+  {% endblock %}
 {% spaceless %}
-    какой-нибудь маркап/даун :)
     <textarea {{ block('widget_attributes') }}>{{ value }}</textarea>
 {% endspaceless %}
 {% endblock richtext_widget %}
