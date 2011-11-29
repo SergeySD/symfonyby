@@ -1,6 +1,13 @@
 {% extends '::layout.html.twig' %}
 
 {% block title %}Сообщество Symfony программистов в Беларуси{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="http://balupton.github.com/jquery-syntaxhighlighter/scripts/jquery.syntaxhighlighter.min.js"></script>
+    <script type="text/javascript">$.SyntaxHighlighter.init({'theme': 'google', 'themes': ['google']});</script>
+{% endblock %}
+
 {% block body %}
 
 <div class="articles line">

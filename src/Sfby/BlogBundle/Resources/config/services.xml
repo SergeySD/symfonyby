@@ -18,9 +18,13 @@
         <parameter key="sfby.blog.admin.category.entity">Sfby\BlogBundle\Entity\Category</parameter>
         
         <parameter key="sfby.blog.form.type.richtext.class">Sfby\BlogBundle\Form\Extension\Core\Type\RichTextType</parameter>
+        
+        <parameter key="markdown.parser.sfby.class">Sfby\BlogBundle\Parser\Parser</parameter>
     </parameters>
     
     <services>
+        <service id="markdown.parser.sfby" class="%markdown.parser.sfby.class%" />
+        
         <service id="sfby.blog.form.type.richtext" class="%sfby.blog.form.type.richtext.class%">
             <tag name="form.type" alias="richtext" />
         </service>
