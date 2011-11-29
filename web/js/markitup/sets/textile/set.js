@@ -11,6 +11,7 @@
 // Feel free to add more tags
 // -------------------------------------------------------------------
 mySettings = {
+  nameSpace:          'markdown', // Useful to prevent multi-instances CSS conflict
 	onShiftEnter:		{keepDefault:false, replaceWith:'\n\n'},
   previewParserPath:   "~/templates/preview.php",
 	markupSet: [
