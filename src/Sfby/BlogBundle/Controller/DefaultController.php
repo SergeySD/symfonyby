@@ -178,11 +178,12 @@ class DefaultController extends Controller
      * 
      * @Template
      */
-    public function userBlogsAction($user)
+    public function userBlogsAction($user, $own = true)
     {
         $blogs = $user->getBlogs();
         return array(
             'blogs' => $blogs,
+            'own' => $own,
         );
     }
     

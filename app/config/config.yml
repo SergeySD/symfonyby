@@ -94,7 +94,10 @@ avalanche_imagine:
             options: { size: [99, 83], mode: outbound }            
         profile_form_avatar:
             type:    thumbnail
-            options: { size: [25, 25], mode: outbound }            
+            options: { size: [25, 25], mode: outbound }
+        profile_list_avatar:
+            type:    thumbnail
+            options: { size: [23, 23], mode: outbound }
             
 sonata_admin:
     dashboard_groups:

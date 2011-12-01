@@ -1,34 +1,18 @@
+{% if users|length %}
 <div class="users">
     <h3>Новые пользователи</h3>
     <ul>
-        <li><a href="#">egorinsk fastpars </a></li>
+    {% for user in users %}
+        <li>
+            {% if user.image %}
+                <span><img src="{{ user.webPath|apply_filter('profile_list_avatar') }}" /></span>
+            {% endif %}
+            <a href="{{url('profile_view', {'id': user.id})}}">{{ user.name }}</a>
+        </li>
+        {% if not loop.last %}
         <li>/</li>
-        <li><span><img src="images/user3.png"  alt="" /></span><a href="#">rokez</a></li>
-        <li>/</li>
-        <li><span><img src="images/user2.png"  alt="" /></span><a href="#">AlexiusGreen </a></li>
-        <li>/</li>
-        <li><a href="#">almazmusic </a></li>
-        <li>/</li>
-        <li><a href="#">z3apa3a </a></li>
-        <li>/</li>
-        <li><span><img src="images/user2.png"  alt="" /></span><a href="#">egorinsk fastpars </a></li>
-        <li>/</li>
-        <li><a href="#">rokez</a></li>
-        <li>/</li>
-        <li><a href="#">AlexiusGreen </a></li>
-        <li>/</li>
-        <li><span><img src="images/user1.png"  alt="" /></span><a href="#">almazmusic </a></li>
-        <li>/</li>
-        <li><span><img src="images/user3.png"  alt="" /></span><a href="#">z3apa3a </a></li>
-        <li>/</li>
-        <li><a href="#">egorinsk fastpars </a></li>
-        <li>/</li>
-        <li><a href="#">rokez</a></li>
-        <li>/</li>
-        <li><a href="#">AlexiusGreen </a></li>
-        <li>/</li>
-        <li><span><img src="images/user1.png"  alt="" /></span><a href="#">almazmusic </a></li>
-        <li>/</li>
-        <li><a href="#">z3apa3a </a></li>
+        {% endif %}
+    {% endfor %}
     </ul>
 </div>
+{% endif %}
