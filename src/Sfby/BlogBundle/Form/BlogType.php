@@ -14,7 +14,7 @@ class BlogType extends AbstractType
             ->add('short_text')
             ->add('text', 'richtext')
             ->add('category')
-            ->add('tags')
+            ->add('tags_text', 'autocomplete')
         ;
     }
 
