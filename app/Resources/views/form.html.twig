@@ -61,6 +61,9 @@
 
 {% block richtext_widget %}
   {% block javascripts_markItUp %}
+        <script type='text/javascript'>
+          //var path_preview = 
+        </script>
     <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('js/markitup/skins/simple/style.css') }}" />
     <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('js/markitup/sets/textile/style.css') }}" />
     <script type='text/javascript' src='{{ asset('js/markitup/jquery.markitup.js') }}'></script>
@@ -75,3 +78,29 @@
     <textarea {{ block('widget_attributes') }}>{{ value }}</textarea>
 {% endspaceless %}
 {% endblock richtext_widget %}
+
+
+
+{% block autocomplete_widget %}
+  {% block javascripts_autocomplete %}
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('js/jquery-autocomplete/jquery.autocomplete.css') }}" />
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('js/jquery-autocomplete/lib/thickbox.css') }}" />
+    <script type='text/javascript' src='{{ asset('js/jquery-autocomplete/lib/jquery.bgiframe.min.js') }}'></script>
+    <script type='text/javascript' src='{{ asset('js/jquery-autocomplete/lib/jquery.ajaxQueue.js') }}'></script>
+    <script type='text/javascript' src='{{ asset('js/jquery-autocomplete/lib/thickbox-compressed.js') }}'></script>
+    <script type='text/javascript' src='{{ asset('js/jquery-autocomplete/jquery.autocomplete.js') }}'></script>
+        <script type='text/javascript'>
+          var url = '{{url('tag_names')}}';
+          jQuery(document).ready(function() {
+            $("#{{id}}").autocomplete(url, {
+              multiple: true,
+              mustMatch: false,
+              autoFill: true
+            });
+          });
+        </script>
+  {% endblock %}
+{% spaceless %}
+    <input type="text" value="{{ value }}" {{ block('widget_attributes') }} />
+{% endspaceless %}
+{% endblock autocomplete_widget %}

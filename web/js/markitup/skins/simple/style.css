@@ -35,7 +35,8 @@
 	margin:5px 0;
 }
 .markItUpFooter {
-	width:100%;
+	width:566px; 
+  float: right;
 }
 .markItUpResizeHandle {
 	overflow:hidden;

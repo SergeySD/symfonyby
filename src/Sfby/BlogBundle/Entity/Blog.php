@@ -101,6 +101,12 @@ class Blog
      * @ORM\JoinTable(name="sfby_tag2blog")
      */
     protected $tags;
+    
+    /**
+     * @var string $tags_text
+     *
+     */
+    protected $tags_text;
 
     
 
@@ -319,5 +325,34 @@ class Blog
         foreach ($tags as $tag){
             $this->addTag($tag);
         }
+    }
+
+    /**
+     * Get tags in text
+     *
+     * @return  text
+     */
+    public function getTagsText()
+    {
+        if (!$this->tags_text)
+        {
+            $arr = array();
+            foreach ($this->tags as $tag)
+            {
+                $arr[] = $tag->getName();
+                $this->tags_text = join(', ', $arr);
+            }
+        }
+        return $this->tags_text;
+    }
+    
+    /**
+     * Set tags text
+     *
+     * @param $text
+     */
+    public function setTagsText($text)
+    {
+        $this->tags_text = $text;
     }
 }

@@ -7,6 +7,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
+use Symfony\Component\HttpFoundation\Response;
 use FOS\UserBundle\Model\UserInterface;
 
 use Sfby\BlogBundle\Entity\Category;
@@ -79,19 +80,22 @@ class DefaultController extends Controller
         if (!is_object($user) || !$user instanceof UserInterface) {
             throw new AccessDeniedException('This user does not have access to this section.');
         }
+        $this->setFlash('notice', null);
         
         $request = $this->getRequest();
         $form = $this->createForm(new BlogType(), $blog);
-        
+       
         $request = $this->getRequest();
-        
         if ($request->getMethod() == 'POST') {
             $form->bindRequest($request);
 
             if ($form->isValid()) {
+                $rep = $this->getDoctrine()->getRepository('Sfby\BlogBundle\Entity\Tag');
+                $rep->processTags($blog);
                 $em = $this->getDoctrine()->getEntityManager();
                 $em->persist($blog);
                 $em->flush();
+                $this->setFlash('notice', 'flash.item.updated');
             }
         }
         
@@ -216,5 +220,24 @@ class DefaultController extends Controller
         return array(
             
         );
+    }
+    
+    /**
+     * 
+     */
+    protected function setFlash($action, $value)
+    {
+        $this->container->get('session')->setFlash($action, $value);
+    }
+    
+    /**
+     * @Route("/tagNames/", name="tag_names")
+     */
+    public function tagNamesAction()
+    {
+        $rep = $this->getDoctrine()->getRepository('Sfby\BlogBundle\Entity\Tag');
+        $names = $rep->getTagNamesInString("\n");
+        $response = new Response($names);
+        return $response;
     }
 }

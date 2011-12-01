@@ -32,4 +32,6 @@ sfby_blog_form_title: "Название"
 sfby_blog_form_short_text: "Сокращенный текст"
 sfby_blog_form_text: "Текст"
 sfby_blog_form_category: "Категория"
-sfby_blog_form_tags: "Тэги"
+sfby_blog_form_tags_text: "Тэги"
+
+flash.item.updated: "Запись сохранена"

@@ -18,6 +18,7 @@
         <parameter key="sfby.blog.admin.category.entity">Sfby\BlogBundle\Entity\Category</parameter>
         
         <parameter key="sfby.blog.form.type.richtext.class">Sfby\BlogBundle\Form\Extension\Core\Type\RichTextType</parameter>
+        <parameter key="sfby.blog.form.type.autocomplete.class">Sfby\BlogBundle\Form\Extension\Core\Type\AutocompleteType</parameter>
         
         <parameter key="markdown.parser.sfby.class">Sfby\BlogBundle\Parser\Parser</parameter>
     </parameters>
@@ -27,6 +28,10 @@
         
         <service id="sfby.blog.form.type.richtext" class="%sfby.blog.form.type.richtext.class%">
             <tag name="form.type" alias="richtext" />
+        </service>
+        
+        <service id="sfby.blog.form.type.autocomplete" class="%sfby.blog.form.type.autocomplete.class%">
+            <tag name="form.type" alias="autocomplete" />
         </service>
         
         <service id="sfby.blog.admin.blog" class="%sfby.blog.admin.blog.class%">
