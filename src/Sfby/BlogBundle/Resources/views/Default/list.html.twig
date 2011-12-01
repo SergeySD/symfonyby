@@ -1,10 +1,9 @@
-
 {% for blog in blogs %}
 <div class="articles">
     <h3>{{blog.title}}</h3>
     <p class="author_article">{{"blog.author"|trans}}: {{blog.user.name}} </p>
     <div class="text_article">
-        <p class="last">{{blog.text|markdown}}</p>
+        <p class="last">{{blog.shortText}}</p>
         <a class="read_next" href="{{path('blog_view', {'slug': blog.slug})}}">{{"blog.read_more"|trans}}</a>
         <div class="clearer"></div>
     </div>
@@ -23,3 +22,6 @@
     </div>
 </div>
 {% endfor %}
+<script type="text/javascript">
+    $(document).ready(updateVotes);
+</script>
