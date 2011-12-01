@@ -3,6 +3,8 @@
 {% block title %}{{blog.title}}{% endblock %}
 {% block description %}{{blog.shortText}}{% endblock %}
 {% block keywords %}{{blog.keywords}}{% endblock %}
+{% block author %}{{blog.user.name}},{{blog.user.email}}{% endblock %}
+
 
 {% block javascripts %}
     {{ parent() }}
@@ -12,24 +14,30 @@
 
 {% block body %}
 
-<div class="articles line">
+<div class="articles">
     <h3>{{blog.title}}</h3>
     <p class="author_article">{{"blog.author"|trans}}: {{blog.user.name}} </p>
-    <div class="text_article no_line">
+    <div class="text_article">
         <p><i>{{blog.shortText}}</i></p>
         <p>{{blog.text|markdown}}</p>
     </div>
-
+    
+    <ul class="tag">  
+        {% for tag in blog.tags %}
+            <li><a href="{{path('blog_by_tag', {'slug': tag.slug})}}">{{tag.name}}</a></li>
+        {% endfor %}
+    </ul>
+    
     <div class="comment">
         <div class="rating">
-            <a href="#"class="minus"></a>
-            <span>135</span>
-            <a href="#" class="plus"></a>
+            <span id="votes{{blog.id}}" class="votes">0</span>
         </div>
     </div>  
 </div>
+<script type="text/javascript">
+    $(document).ready(updateVotes);
+</script>
 
 {% render "SfbyBlogBundle:Default:blogComments" with {"blog": blog} %}
-
 
 {% endblock %}

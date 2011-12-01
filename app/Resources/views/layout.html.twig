@@ -7,7 +7,7 @@
     <meta name="description" content="{% block description %}Сообщество Symfony программистов в Беларуси{% endblock %}" /> 
     <meta name="keywords" content="{% block keywords %}{% endblock %}symfony, project, framework, php, php5, open-source, mit, symphony" /> 
     <meta name="language" content="ru" /> 
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="author" content="{% block author %}{% endblock %}" />
     
     <meta property="og:title" content="Сообщество Symfony программистов в Беларуси"/>
     <meta property="og:type" content="non_profit"/>
@@ -54,7 +54,7 @@
         <script type='text/javascript' src='{{ asset('js/main.js') }}'></script>
     {% endblock %}
   </head> 
-  <body>
+  <body class="lang_{{ app.session.locale=='ru_ru' ? 'ru' : 'en' }}">
         <script type="text/javascript">
             /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
             var disqus_public_key = "{{disqus_public_key}}";

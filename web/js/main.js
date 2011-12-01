@@ -25,7 +25,7 @@ function updateVotesData(data)
     {
         var cnt = res[i].likes - res[i].dislikes;
         var id = res[i].identifiers[0];
-        if ($('#likes'+id))
-            $('#likes'+id).html(cnt);
+        if ($('#votes'+id))
+            $('#votes'+id).html(cnt);
     }
 }

@@ -9,7 +9,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Sfby\BlogBundle\Entity\Blog;
-
+use FOS\UserBundle\Model\GroupInterface;
 /**
  * @ORM\Entity
  * @ORM\Table(name="fos_user")
@@ -93,7 +93,7 @@ class User extends BaseUser
     protected $groups;
     /**
      * 
-     * @ORM\OneToMany(targetEntity="Sfby\BlogBundle\Entity\Blog", mappedBy="fos_user", cascade={"all"})
+     * @ORM\OneToMany(targetEntity="Sfby\BlogBundle\Entity\Blog", mappedBy="user", cascade={"all"})
      */
     protected $blogs;
 
@@ -113,12 +113,12 @@ class User extends BaseUser
     {
         if (null === $this->file) return;
         $this->file->move($this->getAbsoluteUploadDir(), $this->image);
-        unset($this->file);
-        if ($file = $this->getAbsolutePath($this->old_image)) 
+        $this->file = null;
+        if ($this->old_image && $file = $this->getAbsolutePath($this->old_image)) 
         {
             @unlink($file);
         }
-        unset($this->old_image);
+        $this->old_image = null;
     }
     /**
      * @ORM\PostRemove()
@@ -265,5 +265,25 @@ class User extends BaseUser
     public function getBlogs()
     {
         return $this->blogs;
+    }
+
+    /**
+     * Add groups
+     *
+     * @param Sfby\UserBundle\Entity\Group $groups
+     */
+    public function addGroup(GroupInterface $groups)
+    {
+        parent::addGroup($groups);
+    }
+
+    /**
+     * Get groups
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getGroups()
+    {
+        return $this->groups;
     }
 }

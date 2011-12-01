@@ -55,7 +55,7 @@ class Blog
      * @ORM\Column(name="keywords", type="text")
      * @Assert\MaxLength(limit=255, message="blog.error.keywords_long")
      */
-    protected $short_text;
+    protected $keywords;
     
     /**
      * @var string $short_text
@@ -354,5 +354,25 @@ class Blog
     public function setTagsText($text)
     {
         $this->tags_text = $text;
+    }
+
+    /**
+     * Set keywords
+     *
+     * @param text $keywords
+     */
+    public function setKeywords($keywords)
+    {
+        $this->keywords = $keywords;
+    }
+
+    /**
+     * Get keywords
+     *
+     * @return text 
+     */
+    public function getKeywords()
+    {
+        return $this->keywords;
     }
 }
