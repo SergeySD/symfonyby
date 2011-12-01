@@ -168,16 +168,6 @@ class DefaultController extends Controller
      * 
      * @Template
      */
-    public function newUsersAction()
-    {
-        return array();
-    }
-    
-    /**
-     * component
-     * 
-     * @Template
-     */
     public function lastCommentsAction()
     {
         return array();

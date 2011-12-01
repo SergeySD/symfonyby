@@ -16,4 +16,14 @@ class DefaultController extends Controller
     {
         return array('name' => $name);
     }
+    
+    /**
+     * component
+     * 
+     * @Template
+     */
+    public function newUsersAction()
+    {
+        return array();
+    }
 }

@@ -4,7 +4,9 @@
 {% block body %}
 
 {% if app.session.flash('notice') %}
-    <h4 class="flash_notice">{{ app.session.flash('notice')|trans }}</h4>
+<div class="flash">
+    {{ app.session.flash('notice')|trans }}
+</div>
 {% endif %}
 
 <div class="articles">

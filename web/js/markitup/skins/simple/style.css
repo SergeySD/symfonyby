@@ -27,15 +27,19 @@
 	line-height:18px;
 	overflow:auto;
 }
+form textarea.markItUpEditor {
+	width:558px;
+  margin-right: 14px;
+}
 .markItUpPreviewFrame	{
 	overflow:auto;
 	background-color:#FFF;
 	width:566px;
 	height:300px;
-	margin:5px 0 0 122px;
+	margin:5px 0 0 116px;
 }
 .markItUpFooter {
-	width:566px; 
+	width:566px;
   float: right;
 }
 .markItUpResizeHandle {
