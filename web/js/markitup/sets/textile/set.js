@@ -13,8 +13,7 @@
 mySettings = {
   nameSpace:          'markdown', // Useful to prevent multi-instances CSS conflict
 	onShiftEnter:		{keepDefault:false, replaceWith:'\n\n'},
-//  previewParserPath:   path_preview,
-  previewParserPath:   "~/templates/preview.php",
+  previewParserPath:   path_preview,
 	markupSet: [
       {name:'First Level Heading', key:"1", placeHolder:'Your title here...', closeWith:function(markItUp) { return miu.markdownTitle(markItUp, '=') } },
       {name:'Second Level Heading', key:"2", placeHolder:'Your title here...', closeWith:function(markItUp) { return miu.markdownTitle(markItUp, '-') } },

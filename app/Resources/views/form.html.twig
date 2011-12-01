@@ -62,7 +62,7 @@
 {% block richtext_widget %}
   {% block javascripts_markItUp %}
         <script type='text/javascript'>
-          //var path_preview = 
+          var path_preview = '{{url('blog_text_preview')}}';
         </script>
     <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('js/markitup/skins/simple/style.css') }}" />
     <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('js/markitup/sets/textile/style.css') }}" />

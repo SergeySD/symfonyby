@@ -240,4 +240,16 @@ class DefaultController extends Controller
         $response = new Response($names);
         return $response;
     }
+    
+    /**
+     * @Route("/blogTextPreview/", name="blog_text_preview")
+     */
+    public function blogTextPreviewAction()
+    {
+        $request = $this->getRequest();
+        $data = '';
+        if ($request->getMethod() == 'POST')
+            $data = $request->request->get('data');
+        return $this->render('SfbyBlogBundle:Default:textPreview.html.twig', array('data' => $data));
+    }
 }
