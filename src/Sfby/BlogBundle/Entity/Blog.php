@@ -50,6 +50,14 @@ class Blog
     protected $title;
     
     /**
+     * @var string $keywords
+     *
+     * @ORM\Column(name="keywords", type="text")
+     * @Assert\MaxLength(limit=255, message="blog.error.keywords_long")
+     */
+    protected $short_text;
+    
+    /**
      * @var string $short_text
      *
      * @ORM\Column(name="short_text", type="text")

@@ -17,6 +17,7 @@ blog_category.error.name_long: "Название слишком длинное"
 blog.error.name_is_blank: "Введите название"
 blog.error.name_short: "Название слишком короткое"
 blog.error.name_long: "Название слишком длинное"
+blog.error.keywords_long: "Слишком много ключевых слов"
 
 blog.author: "Автор"
 blog.read_more: "читать далее"
