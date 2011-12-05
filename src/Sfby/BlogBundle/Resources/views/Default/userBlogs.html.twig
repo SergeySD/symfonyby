@@ -1,8 +1,21 @@
+{% if blogs|length %}
 <div class="block_profile">
     <ul class="way">
-        <li><span>Ваши статьи</span></li>
+        <li><span>
+            {% if own %}
+                Ваши статьи
+            {% else %}
+                Статьи
+            {% endif %}
+        </span></li>
         <li>/</li>
-        <li><a href="#">Все Ваши статьи</a></li>
+        <li><a href="#">
+            {% if own %}
+                Все Ваши статьи
+            {% else %}
+                Все Статьи
+            {% endif %}
+        </a></li>
     </ul>
     <div class="bl_prof_1">
     {% set  class = ''  %}
@@ -20,3 +33,4 @@
     {% endfor %}
     </div>
 </div>
+{% endif %}
