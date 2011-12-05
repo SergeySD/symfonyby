@@ -16,45 +16,64 @@ use Sfby\BlogBundle\Entity\Tag;
 
 use Sfby\BlogBundle\Form\BlogType;
 
+use MakerLabs\PagerBundle\Pager;
+use MakerLabs\PagerBundle\Adapter\DoctrineOrmAdapter;
+
+
 class DefaultController extends Controller
 {
+    protected $per_page_recent = 5;
+    protected $per_page = 1;
     /**
      * @Route("/", name="blog_index")
+     * @Route("/{page}", defaults={"page"=1}, requirements={"page"="\d+"},  name="blog_index")
      * @Template()
      */
-    public function indexAction()
+    public function indexAction($page = 1)
     {
         $rep = $this->getDoctrine()->getRepository('Sfby\BlogBundle\Entity\Blog');
-        $blogs = $rep->findAll();
-        return array(
-            'blogs' => $blogs,
-        );
+        $qb = $rep->createQueryBuilder('f');
+        $adapter = new DoctrineOrmAdapter($qb);
+        $pager = new Pager($adapter, array('page' => $page, 'limit' => $this->per_page));
+        return array('pager' => $pager);
     }
     
     /**
      * @Route("/{slug}", name="blog_category")
+     * @Route("/{slug}/{page}", defaults={"page"=1}, requirements={"page"="\d+"},  name="blog_category")
      * @Template("SfbyBlogBundle:Default:categoryList.html.twig")
      */
 
-    public function categoryAction(Category $category)
+    public function categoryAction(Category $category, $page = 1)
     {
+        $rep = $this->getDoctrine()->getRepository('Sfby\BlogBundle\Entity\Blog');
+        $qb = $rep->createQueryBuilder('f');
+        $qb->where('f.category = ?1')->setParameter(1, $category);
+        $adapter = new DoctrineOrmAdapter($qb);
+        $pager = new Pager($adapter, array('page' => $page, 'limit' => $this->per_page));
         return array(
+            'pager' => $pager,
             'category' => $category,
-            'blogs' => $category->getBlogs()
-        );
+            );
     }
     
     /**
      * @Route("/tag/{slug}", name="blog_by_tag")
+     * @Route("/tag/{slug}/{page}", defaults={"page"=1}, requirements={"page"="\d+"},  name="blog_by_tag")
      * @Template("SfbyBlogBundle:Default:tagList.html.twig")
      */
 
-    public function tagAction(Tag $tag)
+    public function tagAction(Tag $tag, $page = 1)
     {
+        $rep = $this->getDoctrine()->getRepository('Sfby\BlogBundle\Entity\Blog');
+        $qb = $rep->createQueryBuilder('f');
+        $qb->where('?1 MEMBER OF f.tags')->setParameter(1, $tag);
+        $adapter = new DoctrineOrmAdapter($qb);
+        $pager = new Pager($adapter, array('page' => $page, 'limit' => $this->per_page));
         return array(
+            'pager' => $pager,
             'tag' => $tag,
-            'blogs' => $tag->getBlogs()
-        );
+            );
     }
     
     /**
@@ -142,11 +161,12 @@ class DefaultController extends Controller
     public function recentAction()
     {
         $rep = $this->getDoctrine()->getRepository('Sfby\BlogBundle\Entity\Blog');
-        return array(
-            'blogs' => $rep->findAll(),
-            'tag'=>null,
-            'category'=>null
-        );
+        $qb = $rep->createQueryBuilder('f');
+        $qb->addOrderBy('f.createdAt', 'DESC');
+        $qb->setMaxResults($this->per_page_recent);
+        $adapter = new DoctrineOrmAdapter($qb);
+        $pager = new Pager($adapter, array('page' => 1, 'limit' => $this->per_page_recent));
+        return array('pager' => $pager);
     }
     
     /**
