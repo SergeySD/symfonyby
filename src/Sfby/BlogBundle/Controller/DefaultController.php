@@ -23,7 +23,7 @@ use MakerLabs\PagerBundle\Adapter\DoctrineOrmAdapter;
 class DefaultController extends Controller
 {
     protected $per_page_recent = 5;
-    protected $per_page = 1;
+    protected $per_page = 5;
     /**
      * @Route("/", name="blog_index")
      * @Route("/{page}", defaults={"page"=1}, requirements={"page"="\d+"},  name="blog_index")
