@@ -8,19 +8,24 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 use Sfby\UserBundle\Entity\User;
 
+use MakerLabs\PagerBundle\Pager;
+use MakerLabs\PagerBundle\Adapter\DoctrineOrmAdapter;
+
 class DefaultController extends Controller
 {
+    protected $per_page = 5;
     /**
      * @Route("/", name="user_index")
+     * @Route("/{page}", defaults={"page"=1}, requirements={"page"="\d+"},  name="user_index")
      * @Template()
      */
-    public function indexAction()
+    public function indexAction($page = 1)
     {
         $rep = $this->getDoctrine()->getRepository('Sfby\UserBundle\Entity\User');
-        $users = $rep->findAll();
-        return array(
-            'users' => $users,
-        );
+        $qb = $rep->createQueryBuilder('f');
+        $adapter = new DoctrineOrmAdapter($qb);
+        $pager = new Pager($adapter, array('page' => $page, 'limit' => $this->per_page));
+        return array('pager' => $pager);
     }
     
     /**
