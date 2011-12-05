@@ -11,12 +11,16 @@ use Sfby\UserBundle\Entity\User;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/hello/{name}")
+     * @Route("/", name="user_index")
      * @Template()
      */
-    public function indexAction($name)
+    public function indexAction()
     {
-        return array('name' => $name);
+        $rep = $this->getDoctrine()->getRepository('Sfby\UserBundle\Entity\User');
+        $users = $rep->findAll();
+        return array(
+            'users' => $users,
+        );
     }
     
     /**

@@ -48,6 +48,10 @@ class DefaultController extends Controller
             $subactive = $this->getRequest()->get('request')->get('slug');
             $subactive = $subactive ? $subactive : 'all';
         }
+        if (stripos($controller, 'UserBundle'))
+        {
+            $active = 'people';
+        }
         return array(
             'user' => $this->get('security.context')->getToken()->getUser(),
             'active' => $active,

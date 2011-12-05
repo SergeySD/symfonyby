@@ -1,1 +1,8 @@
-Hello {{ name }}!
+{% extends '::layout.html.twig' %}
+
+{% block title %}Сообщество Symfony программистов в Беларуси{% endblock %}
+{% block body %}
+
+{% include "SfbyUserBundle:Default:list.html.twig" with {'users': users} %}
+
+{% endblock %}
