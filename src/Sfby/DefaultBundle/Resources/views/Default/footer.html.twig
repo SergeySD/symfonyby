@@ -1,16 +1,13 @@
 <div class="footer">
     <div class="bottom_nav">
         <div class="block"> 
-            <h3><a href="#">Блоги</a></h3>
+            <h3><a href="{{path('blog_index')}}">Блоги</a></h3>
             <ul>
-                <li><a href="#"><span>Люди</span></a></li>
-                <li><a href="#"><span>Форум</span></a></li>
-                <li><a href="#"><span>О сайте</span></a></li>
-                <li><a href="#"><span>Помощь</span></a></li>
+                {% render "SfbyBlogBundle:Default:footerSubmenu" %}
             </ul>
         </div>
         <div class="block"> 
-            <h3><a href="#">Люди</a></h3>
+            <h3><a href="{{path('user_index')}}">Люди</a></h3>
             <ul>
                 <li><a href="#"><span>Форум</span></a></li>
                 <li><a href="#"><span>Блоги</span></a></li>

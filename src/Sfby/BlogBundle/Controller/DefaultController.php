@@ -137,6 +137,20 @@ class DefaultController extends Controller
     /**
      * component
      * 
+     * @Template
+     */
+    public function footerSubmenuAction()
+    {
+        $rep = $this->getDoctrine()->getRepository('Sfby\BlogBundle\Entity\Category');
+        
+        return array(
+            'categories' => $rep->findAll()
+        );
+    }
+    
+    /**
+     * component
+     * 
      * @Template("SfbyBlogBundle:Default:list.html.twig")
      */
     public function recentAction()
