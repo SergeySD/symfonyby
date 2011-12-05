@@ -34,7 +34,7 @@
                     {% render "SfbyBlogBundle:Default:submenu" with {'active': (active=='blogs')?subactive:null} %}
                 </div>
             </li>
-            <li class="{{active=='people'?'active':''}}"><a href="#"><span>{{"topmenu.people"|trans}}</span></a></li>
+            <li class="{{active=='people'?'active':''}}"><a href="{{path('user_index')}}"><span>{{"topmenu.people"|trans}}</span></a></li>
             <li class="{{active=='forum'?'active':''}}"><a href="#"><span>{{"topmenu.forum"|trans}}</span></a></li>
         </ul>
         <div class="search">

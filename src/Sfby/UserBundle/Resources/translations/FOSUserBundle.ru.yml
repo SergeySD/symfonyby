@@ -16,6 +16,7 @@ security.login.cancel: Отмена
 # Profile
 profile.show.welcome: Добро пожаловать
 profile.show.username: Логин
+profile.show.name: Имя
 profile.show.email: E-mail
 profile.show.about: О себе
 profile.show.created_at: Регистрация
