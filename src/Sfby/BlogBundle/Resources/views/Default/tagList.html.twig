@@ -5,6 +5,8 @@
 
 <h1>Свежие записи > Метка {{ tag }}</h1>
 
-{% include "SfbyBlogBundle:Default:list.html.twig" with {'blogs': blogs} %}
+{% include "SfbyBlogBundle:Default:list.html.twig" with {'pager': pager} %}
+
+{% include "SfbyBlogBundle:Default:pager.html.twig" with {'pager': pager, 'route': 'blog_by_tag', 'params': {'slug': tag.slug}} %}
 
 {% endblock %}
