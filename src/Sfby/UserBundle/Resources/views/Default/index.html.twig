@@ -3,6 +3,9 @@
 {% block title %}Сообщество Symfony программистов в Беларуси{% endblock %}
 {% block body %}
 
-{% include "SfbyUserBundle:Default:list.html.twig" with {'users': users} %}
+{% include "SfbyUserBundle:Default:list.html.twig" with {'pager': pager} %}
+
+{% include "SfbyUserBundle:Default:pager.html.twig" with {'pager': pager, 'route': 'user_index', 'params': {}} %}
 
 {% endblock %}
+

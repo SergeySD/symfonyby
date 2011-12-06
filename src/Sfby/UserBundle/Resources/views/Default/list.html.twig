@@ -1,4 +1,4 @@
-{% for user in users %}
+{% for user in pager.getResults %}
 <div class="info_profile">
     <div class="profile_img">
         <a href="{{url('profile_view', {'id': user.id})}}">
