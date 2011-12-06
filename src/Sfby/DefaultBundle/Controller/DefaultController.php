@@ -52,6 +52,10 @@ class DefaultController extends Controller
         {
             $active = 'people';
         }
+        if (stripos($controller, 'DefaultBundle'))
+        {
+            $active = 'about';
+        }
         return array(
             'user' => $this->get('security.context')->getToken()->getUser(),
             'active' => $active,
@@ -64,6 +68,15 @@ class DefaultController extends Controller
      * @Template
      */
     public function footerAction()
+    {
+        return array();
+    }
+    
+    /**
+     * @Route("/about/", name="about")
+     * @Template()
+     */
+    public function aboutAction()
     {
         return array();
     }

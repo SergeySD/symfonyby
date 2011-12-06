@@ -8,7 +8,7 @@ header.register: Регистрация
 topmenu.blog: Блоги
 topmenu.blog.all: Все
 topmenu.people: Люди
-topmenu.forum: Форум
+topmenu.about: О сайте
 
 blog_category.error.name_is_blank: "Введите название"
 blog_category.error.name_short: "Название слишком короткое"
@@ -36,3 +36,4 @@ sfby_blog_form_category: "Категория"
 sfby_blog_form_tags_text: "Тэги"
 
 flash.item.updated: "Запись сохранена"
+server.error: "Ошибка сервера"

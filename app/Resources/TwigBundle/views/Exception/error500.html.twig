@@ -1,12 +1,11 @@
 {% extends '::layout.html.twig' %}
-{% block title %}{{"server.error"|trans}}{% endblock %}
+{% block title %}{{"server.error"|trans}} {{ status_code }}{% endblock %}
 {% block body %}
     <div class="server_error">
-    <h3>{{"server.error"|trans}}</h3>
+    <h3>{{"server.error"|trans}} "{{ status_code }} {{ status_text }}"</h3>
       <p>
          Произошла ошибка сервера.
          <br />Воспользуйтесь меню для навигации по сайту.
       </p>
     </div>
 {% endblock %}
-    
