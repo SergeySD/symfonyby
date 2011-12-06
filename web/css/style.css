@@ -246,7 +246,8 @@ h1.dotted{border-bottom: dotted 1px #bababa; color: #313131 ; font-family: Georg
     text-shadow:1px 1px 1px #7DA022; 
     border: none;
 }
-    
+.fb_login{padding-left: 120px; margin-top: 20px;}
+
 label.required{ 
     background: url("../images/bg/required.png") no-repeat scroll right 5px transparent;
     padding-right: 5px;

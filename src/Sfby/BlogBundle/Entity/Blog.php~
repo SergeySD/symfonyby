@@ -355,4 +355,24 @@ class Blog
     {
         $this->tags_text = $text;
     }
+
+    /**
+     * Set keywords
+     *
+     * @param text $keywords
+     */
+    public function setKeywords($keywords)
+    {
+        $this->keywords = $keywords;
+    }
+
+    /**
+     * Get keywords
+     *
+     * @return text 
+     */
+    public function getKeywords()
+    {
+        return $this->keywords;
+    }
 }

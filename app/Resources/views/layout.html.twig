@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru"> 
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml" xml:lang="ru" lang="ru"> 
   <head> 
     <title>{% block title %}Сообщество Symfony программистов в Беларуси{% endblock %}</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
@@ -57,7 +57,25 @@
     {% endblock %}
   </head> 
   <body class="lang_{{ app.session.locale=='ru_ru' ? 'ru' : 'en' }}">
+      {{ facebook_initialize({'xfbml': true, 'fbAsyncInit': 'onFbInit();'}) }}
         <script type="text/javascript">
+            function goLogIn(){
+                  window.location = "{{ path('_security_check_facebook') }}";
+              }
+
+              function onFbInit() {
+                 if (typeof(FB) != 'undefined' && FB != null ) {
+                      FB.Event.subscribe('auth.login', function(response) {
+                           setTimeout(goLogIn,500);
+                      });
+                      FB.Event.subscribe('auth.logout', function(response) {
+                           window.location = "{{ path('_security_logout') }}";
+                      });
+                 }
+              }
+
+
+            
             /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
             var disqus_public_key = "{{disqus_public_key}}";
             var disqus_shortname = 'symfonyby'; // required: replace example with your forum shortname
