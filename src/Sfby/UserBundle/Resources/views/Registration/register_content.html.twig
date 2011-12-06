@@ -1,6 +1,7 @@
 {% form_theme form theme %}
 <div class="articles">
     <h3>Регистрация</h3>
+    <div class="fb_login">{{ facebook_login_button({'label': 'registration.submit'|trans({}, 'FOSUserBundle')}) }}</div>
     <div class="form">
         <form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
             {{ form_widget(form) }}

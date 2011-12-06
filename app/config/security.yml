@@ -5,53 +5,43 @@ security:
     role_hierarchy:
         ROLE_ADMIN:       ROLE_USER
         ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+        
+    factories:
+        - "%kernel.root_dir%/../vendor/bundles/FOS/FacebookBundle/Resources/config/security_factories.xml"
 
     providers:
+        chain_provider:
+            providers: [fos_userbundle, sfby_facebook] 
         fos_userbundle:
             id: fos_user.user_manager
-
-        in_memory:
-            users:
-                user:  { password: user, roles: [ 'ROLE_USER' ] }
-                admin: { password: admin, roles: [ 'ROLE_ADMIN' ] }
+        sfby_facebook:
+            id: sfby_facebook.auth
 
     firewalls:
         main:
             pattern: ^/
+            fos_facebook:
+                app_url: "http://apps.facebook.com/170680162967421/"
+                server_url: "http://dev.symfony.by/"
+                login_path: /login
+                check_path: /login_check/facebook
+                provider: sfby_facebook
             form_login:
+                login_path: /login
+                check_path: /login_check
                 provider: fos_userbundle
-            logout:       true
             anonymous:    true
-
+            logout:       true
+            
+#            logout:
+#                handlers: ["fos_facebook.logout_handler"]
+            
         dev:
             pattern:  ^/(_(profiler|wdt)|css|images|js)/
             security: false
             
-#        secured_area:
-#            pattern:    ^/
-#            anonymous: ~
-#            switch_user: { role: ROLE_ADMIN, parameter: _user }
-#            form_login: 
-#                login_path:  /login
-#                check_path:  /login_check
-#                default_target_path: /list
-#                use_forward: true
-#
-#            logout:
-#                path:   /logout
-#                target: /list
-            
-
-            #anonymous: ~
-            #http_basic:
-            #    realm: "Secured Demo Area"
-
     access_control:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
-
-#        - { path: ^/list, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-#        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-#        - { path: ^/login_check, roles: IS_AUTHENTICATED_ANONYMOUSLY }

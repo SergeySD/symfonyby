@@ -69,22 +69,12 @@ class User extends BaseUser
      */
     protected $about;
 
-//    /**
-//     * @var datetime $createdAt
-//     *
-//     * @ORM\Column(name="created_at", type="datetime", nullable=true)
-//     * @Gedmo\Timestampable(on="create")
-//     * 
-//     */
-//    private $createdAt;
-//
-//    /**
-//     * @var datetime $updatedAt
-//     *
-//     * @ORM\Column(name="updated_at", type="datetime", nullable=true)
-//     * @Gedmo\Timestampable(on="update")
-//     */
-//    private $updatedAt;
+    /**
+     * @var string $facebookID
+     *
+     * @ORM\Column(name="facebook_id", type="string", length=50, nullable=true)
+     */
+    protected $facebookId;
     
     /**
      * @ORM\ManyToMany(targetEntity="Group", mappedBy="users")
@@ -285,5 +275,75 @@ class User extends BaseUser
     public function getGroups()
     {
         return $this->groups;
+    }
+    
+    /**
+     * @param Array
+     */
+    public function setFBData($fbdata)
+    {
+        if (isset($fbdata['id'])) 
+        {
+            $this->setFacebookID($fbdata['id']);
+            $this->addRole('ROLE_FACEBOOK');
+        }
+        $name = array();
+        if (isset($fbdata['name'])) 
+        {
+            $name[] = $fbdata['name'];
+        }
+        else
+        {
+            if (isset($fbdata['first_name'])) 
+            {
+                $name[] = $fbdata['first_name'];
+            }
+            if (isset($fbdata['last_name'])) 
+            {
+                $name[] = $fbdata['last_name'];
+            }
+        }
+        $this->setName(join(' ', $name));
+        
+        if (isset($fbdata['email'])) 
+        {
+            $this->setEmail($fbdata['email']);
+        }
+    }
+    
+    public function serialize()
+    {
+        return serialize(array($this->facebookId, parent::serialize()));
+    }
+
+    public function unserialize($data)
+    {
+        list($this->facebookId, $parentData) = unserialize($data);
+        parent::unserialize($parentData);
+    }
+
+
+
+    /**
+     * Set facebookID
+     *
+     * @param string $facebookID
+     */
+    public function setFacebookID($facebookID)
+    {
+        $this->facebookId = $facebookID;
+        $this->setUsername('fb_'.$facebookID);
+        $this->salt = '';
+
+    }
+
+    /**
+     * Get facebookID
+     *
+     * @return string 
+     */
+    public function getFacebookID()
+    {
+        return $this->facebookId;
     }
 }

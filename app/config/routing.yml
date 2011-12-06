@@ -48,3 +48,13 @@ fos_user_change_password:
 _imagine:
     resource: .
     type:     imagine
+
+_security_logout:
+    pattern:  /logout
+
+
+# This is defined for facebook login authentication,
+# a controller is associated with it but does nothing
+_security_check_facebook:
+    pattern: /login_check/facebook
+    defaults: { _controller: SfbyUserBundle:Default:checkFacebook }

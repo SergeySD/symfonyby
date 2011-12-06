@@ -34,6 +34,8 @@ class AppKernel extends Kernel
             new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
             
             new MakerLabs\PagerBundle\MakerLabsPagerBundle(),
+            new FOS\FacebookBundle\FOSFacebookBundle(),
+
 
         );
 

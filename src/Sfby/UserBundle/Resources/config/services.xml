@@ -17,10 +17,19 @@
         <parameter key="sfby.user.admin.group.controller">SonataAdminBundle:CRUD</parameter>
         <parameter key="sfby.user.admin.group.entity">Sfby\UserBundle\Entity\Group</parameter>
         
+        <parameter key="sfby_facebook.auth.class">Sfby\UserBundle\Security\User\Provider\FacebookProvider</parameter>
     </parameters>
 
     
     <services>
+
+        <service id="sfby_facebook.auth" class="%sfby_facebook.auth.class%">
+            <argument type="service" id="fos_facebook.api"/>
+            <argument type="service" id="fos_user.user_manager"/>
+            <argument type="service" id="validator"/>
+            <argument type="service" id="service_container"/>
+        </service>
+
 
         <service id="sfby_user.registration.form.type" class="%sfby_user.registration.form.type%">
             <tag name="form.type" alias="sfby_user_registration" />

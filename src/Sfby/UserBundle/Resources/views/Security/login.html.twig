@@ -1,8 +1,10 @@
 {% extends "FOSUserBundle::layout.html.twig" %}
 
 {% block fos_user_content %}
+
 <div class="articles">
     <h3>Логин</h3>
+    <div class="fb_login">{{ facebook_login_button({'label': 'security.login.submit'|trans({}, 'FOSUserBundle')}) }}</div>
     <div class="form">
         <form action="{{ path("fos_user_security_check") }}" method="POST">
             {% if error %}

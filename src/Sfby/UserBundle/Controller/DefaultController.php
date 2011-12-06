@@ -53,4 +53,12 @@ class DefaultController extends Controller
             'user' => $user,
         );
     }
+    
+    /**
+     */
+    public function checkFacebookAction()
+    {
+        
+    }
+
 }

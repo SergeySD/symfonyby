@@ -111,3 +111,12 @@ sonata_admin:
 knp_markdown:
     parser:
         service: markdown.parser.sfby
+        
+fos_facebook:
+    file:   %kernel.root_dir%/../vendor/facebook/src/base_facebook.php
+    alias:  facebook
+    app_id: 170680162967421
+    secret: d4e0ae46da076a0f4c5e42cbcaf233d4
+    cookie: true
+    permissions: [email]
+    
