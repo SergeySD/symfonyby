@@ -27,7 +27,7 @@
             <li><span>{{blog.createdAt|date('d.m.Y')}}</span></li>
             <li><span>/</span></li>
             <li>
-              <a href="{{path('blog_view', {'slug': blog.slug})}}">{{blog.title}}</a>
+              <a href="{{path('blog_view', {'slug': blog.slug})}}">{{blog.title}}</a> (<a href="{{path('blog_edit', {'id': blog.id})}}">{{ 'blog.edit.title'|trans}}</a>)
             </li>
         </ul>
     {% endfor %}

@@ -39,8 +39,8 @@ class DefaultController extends Controller
     }
     
     /**
-     * @Route("/{slug}", name="blog_category")
-     * @Route("/{slug}/{page}", defaults={"page"=1}, requirements={"page"="\d+"},  name="blog_category")
+     * @Route("/cat/{slug}", name="blog_category")
+     * @Route("/cat/{slug}/{page}", defaults={"page"=1}, requirements={"page"="\d+"},  name="blog_category")
      * @Template("SfbyBlogBundle:Default:categoryList.html.twig")
      */
 
@@ -97,6 +97,11 @@ class DefaultController extends Controller
     {
         $user = $this->container->get('security.context')->getToken()->getUser();
         if (!is_object($user) || !$user instanceof UserInterface) {
+            throw new AccessDeniedException('This user does not have access to this section.');
+        }
+        
+        if ($blog->getUser()->getId() != $user->getId())
+        {
             throw new AccessDeniedException('This user does not have access to this section.');
         }
         $this->setFlash('notice', null);
