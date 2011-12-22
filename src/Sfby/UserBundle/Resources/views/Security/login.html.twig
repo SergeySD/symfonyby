@@ -26,9 +26,12 @@
                 <a href="{{path('homepage')}}" class="gray_submit"><span>{{ 'security.login.cancel'|trans({}, 'FOSUserBundle') }}</span></a>
                 <span class="submit"><input type="submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}"></span>
             </div>
-                
         </form>
     </div>
+   
+  <div class="text_article no_line">
+    <p>Забыли пароль? <a href="{{path('fos_user_resetting_request')}}">{{ "resetting.request.title"|trans({}, 'FOSUserBundle') }}</a></p>
+  </div>
 </div>    
     
 {% endblock fos_user_content %}
