@@ -11,7 +11,7 @@
         <li>/</li>
         <li><a href="#">
             {% if own %}
-                Все Ваши статьи
+                <a href="{{path('blog_create')}}">{{ 'blog.create.title'|trans}}</a>
             {% else %}
                 Все Статьи
             {% endif %}
@@ -20,10 +20,7 @@
     <div class="bl_prof_1">
     {% set  class = ''  %}
     {% for blog in blogs %}
-        {% if loop.last %}
-          {% set class = 'last' %}
-        {% endif %}
-        <ul class="{{class}}">
+        <ul class="{{loop.last ? 'last' : ''}}">
             <li><span>{{blog.createdAt|date('d.m.Y')}}</span></li>
             <li><span>/</span></li>
             <li>

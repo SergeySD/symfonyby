@@ -1,0 +1,25 @@
+{% extends '::layout.html.twig' %}
+
+{% block title %}Сообщество Symfony программистов в Беларуси{% endblock %}
+{% block body %}
+
+{% if app.session.flash('notice') %}
+<div class="flash">
+    {{ app.session.flash('notice')|trans }}
+</div>
+{% endif %}
+
+<div class="articles">
+    <h3>{{ 'blog.create.title'|trans}}</h3>
+    <div class="form">
+        <form action="{{ path('blog_create') }}" {{ form_enctype(form) }} method="POST">
+            {{ form_widget(form) }}
+            <div>
+                <a href="{{path('fos_user_profile_show')}}" class="gray_submit"><span>{{ 'blog.create.cancel'|trans }}</span></a>
+                <span class="submit"><input type="submit" value="{{ 'blog.create.submit'|trans }}"></span>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

@@ -33,6 +33,7 @@ class DefaultController extends Controller
     {
         $rep = $this->getDoctrine()->getRepository('Sfby\BlogBundle\Entity\Blog');
         $qb = $rep->createQueryBuilder('f');
+        $qb->addOrderBy('f.createdAt', 'DESC');
         $adapter = new DoctrineOrmAdapter($qb);
         $pager = new Pager($adapter, array('page' => $page, 'limit' => $this->per_page));
         return array('pager' => $pager);
@@ -49,6 +50,7 @@ class DefaultController extends Controller
         $rep = $this->getDoctrine()->getRepository('Sfby\BlogBundle\Entity\Blog');
         $qb = $rep->createQueryBuilder('f');
         $qb->where('f.category = ?1')->setParameter(1, $category);
+        $qb->addOrderBy('f.createdAt', 'DESC');
         $adapter = new DoctrineOrmAdapter($qb);
         $pager = new Pager($adapter, array('page' => $page, 'limit' => $this->per_page));
         return array(
@@ -68,6 +70,7 @@ class DefaultController extends Controller
         $rep = $this->getDoctrine()->getRepository('Sfby\BlogBundle\Entity\Blog');
         $qb = $rep->createQueryBuilder('f');
         $qb->where('?1 MEMBER OF f.tags')->setParameter(1, $tag);
+        $qb->addOrderBy('f.createdAt', 'DESC');
         $adapter = new DoctrineOrmAdapter($qb);
         $pager = new Pager($adapter, array('page' => $page, 'limit' => $this->per_page));
         return array(
@@ -104,7 +107,6 @@ class DefaultController extends Controller
         {
             throw new AccessDeniedException('This user does not have access to this section.');
         }
-        $this->setFlash('notice', null);
         
         $request = $this->getRequest();
         $form = $this->createForm(new BlogType(), $blog);
@@ -119,7 +121,47 @@ class DefaultController extends Controller
                 $em = $this->getDoctrine()->getEntityManager();
                 $em->persist($blog);
                 $em->flush();
-                $this->setFlash('notice', 'flash.item.updated');
+                $this->setFlash('notice', 'blog.flash.updated');
+            }
+        }
+        
+        return array(
+            'blog' => $blog,
+            'form' => $form->createView(),
+        );
+    }
+    
+    /**
+     * @Route("/create", name="blog_create")
+     * @Template
+     */
+
+    public function createAction()
+    {
+        $user = $this->container->get('security.context')->getToken()->getUser();
+        if (!is_object($user) || !$user instanceof UserInterface) {
+            throw new AccessDeniedException('This user does not have access to this section.');
+        }
+        
+        $blog = new Blog();
+        $blog->setUser($user);
+        
+        $request = $this->getRequest();
+        $form = $this->createForm(new BlogType(), $blog);
+       
+        $request = $this->getRequest();
+        if ($request->getMethod() == 'POST') {
+            $form->bindRequest($request);
+
+            if ($form->isValid()) {
+                $rep = $this->getDoctrine()->getRepository('Sfby\BlogBundle\Entity\Tag');
+                $rep->processTags($blog);
+                $em = $this->getDoctrine()->getEntityManager();
+                $em->persist($blog);
+                $em->flush();
+                $this->setFlash('notice', 'blog.flash.created');
+                
+                return $this->redirect($this->generateUrl('blog_edit', array('id' => $blog->getId())));
             }
         }
         
@@ -265,8 +307,11 @@ class DefaultController extends Controller
      */
     public function tagNamesAction()
     {
+        $request = $this->getRequest();
+        
         $rep = $this->getDoctrine()->getRepository('Sfby\BlogBundle\Entity\Tag');
-        $names = $rep->getTagNamesInString("\n");
+        
+        $names = $rep->getTagNamesInString("\n", $request->get('q'), $request->get('limit'));
         $response = new Response($names);
         return $response;
     }

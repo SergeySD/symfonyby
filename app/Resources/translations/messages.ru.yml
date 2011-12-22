@@ -27,6 +27,12 @@ blog.comments.submit: "Отправить"
 blog.edit.title: "Редактирование"
 blog.edit.cancel: "Отмена"
 blog.edit.submit: "Готово"
+blog.flash.updated: "Блог сохранен"
+
+blog.create.title: "Добавление блога"
+blog.create.cancel: "Отмена"
+blog.create.submit: "Готово"
+blog.flash.created: "Новый блог сохранен"
 
 sfby_blog_form_title: "Название"
 sfby_blog_form_keywords: "Ключевые слова"

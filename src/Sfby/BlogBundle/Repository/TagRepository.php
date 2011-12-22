@@ -145,11 +145,18 @@ class TagRepository extends EntityRepository
      * @param string    $separator  Tag name separator
      * @return String
      */
-    public function getTagNamesInString($separator=', ')
+    public function getTagNamesInString($separator=', ', $search = null, $limit = 0)
     {
+        $q = $this->createQueryBuilder('q');
+        $q->select('q.name');
+        if ($limit)
+            $q->setMaxResults($limit);
+        if ($search)
+            $q->where("q.name LIKE ?1")->setParameter(1, '%'.$search.'%');
+        
         $names = array();
-        foreach ($this->findAll() as $tag)
-            $names[] = $tag->getName();
+        foreach ($q->getQuery()->getResult() as $tag)
+            $names[] = $tag['name'];
 
         return join($separator, $names);
     }
