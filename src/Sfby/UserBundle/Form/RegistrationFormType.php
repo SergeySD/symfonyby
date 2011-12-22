@@ -13,7 +13,7 @@ class RegistrationFormType extends BaseType
         $builder->add('plainPassword', 'password');
         $builder->add('email', 'email');
         $builder->add('name');
-        $builder->add('about');
+        $builder->add('about', 'richtext');
         
     }
 
