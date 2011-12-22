@@ -101,11 +101,11 @@
     target=/bundles/Sonata/AdminBundle
 
 [MenuBundle]
-    git=http://github.com/knplabs/KnpMenuBundle.git
+    git=http://github.com/KnpLabs/KnpMenuBundle.git
     target=/bundles/Knp/Bundle/MenuBundle
 
 [KnpMenu]
-    git=http://github.com/knplabs/KnpMenu.git
+    git=http://github.com/KnpLabs/KnpMenu.git
     target=/knp/menu
 
 [SonataDoctrineORMAdminBundle]
@@ -113,7 +113,7 @@
     target=/bundles/Sonata/DoctrineORMAdminBundle
 
 [KnpMarkdownBundle]
-    git=http://github.com/knplabs/KnpMarkdownBundle.git
+    git=http://github.com/KnpLabs/KnpMarkdownBundle.git
     target=/bundles/Knp/Bundle/MarkdownBundle
 
 [FOSFacebookBundle]

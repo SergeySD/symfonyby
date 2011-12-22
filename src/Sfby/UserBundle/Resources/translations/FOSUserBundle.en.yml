@@ -19,6 +19,7 @@ profile.edit.submit: Update
 profile.flash.updated: The profile has been updated
 
 # Password change
+change_password.title: Change password
 change_password.submit: Change password
 change_password.flash.success: The password has been changed
 
@@ -39,6 +40,7 @@ registration.email: |
     the Team.
 
 # Password resetting
+resetting.request.title: Reset password
 resetting.password_already_requested: The password for this user has already been requested within the last 24 hours.
 resetting.check_email: An email has been sent to %email%. It contains a link you must click to reset your password.
 resetting.request.invalid_username: The username or email address "%username%" does not exist.

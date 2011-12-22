@@ -27,6 +27,7 @@ profile.edit.cancel: Отмена
 profile.flash.updated: Профиль пользователя обновлен
 
 # Password change
+change_password.title: Смена пароля
 change_password.submit: Изменить пароль
 change_password.flash.success: Пароль изменен
 change_password.cancel: Отмена
@@ -45,11 +46,13 @@ registration.email: |
     Для подтверждения вашей регистрации, пройдите по ссылке %confirmationUrl%
 
     С наилучшими пожеланиями,
-    команда сайта.
+    команда symfony.by
 
 # Password resetting
+
 resetting.password_already_requested: Пароль для данного пользователя уже запрашивался за последние 24 часа.
 resetting.check_email: Письмо на адрес %email% уже отправлено. Оно содержит ссылку, при переходе по которой ваш пароль будет сброшен.
+resetting.request.title: Сброс пароля
 resetting.request.invalid_username: Пользователь "%username%" не существует.
 resetting.request.username: "Имя пользователя:"
 resetting.request.submit: Сбросить пароль
@@ -63,7 +66,7 @@ resetting.email: |
     Для сброса пароля - пожалуйста пройдите по ссылке %confirmationUrl%
 
     С наилучшими пожеланиями,
-    команда сайта.
+    команда symfony.by 
 
 # Global strings
 layout.logout: Выход
