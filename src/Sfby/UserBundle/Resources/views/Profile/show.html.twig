@@ -15,7 +15,7 @@
                 <li>{{ 'profile.show.created_at'|trans({}, 'FOSUserBundle') }}: <span>{{ user.createdAt|date('d.m.Y') }}</span></li>
                 <li>{{ 'profile.show.username'|trans({}, 'FOSUserBundle') }}: <span>{{ user.username }}</span></li>
                 <li>{{ 'profile.show.email'|trans({}, 'FOSUserBundle') }}: <span>{{ user.email }}</span></li>
-                <li><a href="{{path('fos_user_profile_edit')}}">{{ "profile.show.edit"|trans({}, 'FOSUserBundle') }}</a></li>
+                <li><a href="{{path('fos_user_profile_edit')}}">{{ "profile.show.edit"|trans({}, 'FOSUserBundle') }}</a> | <a href="{{path('fos_user_change_password')}}">{{ "change_password.title"|trans({}, 'FOSUserBundle') }}</a></li>
             </ul>
         </div>
 
