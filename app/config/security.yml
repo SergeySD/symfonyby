@@ -31,10 +31,10 @@ security:
                 check_path: /login_check
                 provider: fos_userbundle
             anonymous:    true
-            logout:       true
+#            logout:       true
             
-#            logout:
-#                handlers: ["fos_facebook.logout_handler"]
+            logout:
+                handlers: ["fos_facebook.logout_handler"]
             
         dev:
             pattern:  ^/(_(profiler|wdt)|css|images|js)/
