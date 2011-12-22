@@ -22,7 +22,7 @@ class ProfileFormType extends BaseType
         $builder->add('name');
         $builder->add('email', 'email');
         $builder->add('file');
-        $builder->add('about');
+        $builder->add('about', 'richtext');
     }
 
     public function getName()

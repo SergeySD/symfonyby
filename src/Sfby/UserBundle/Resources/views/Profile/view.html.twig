@@ -20,7 +20,7 @@
 
         <div class="clearer"></div>
         <div>
-            <strong>{{ 'profile.show.about'|trans({}, 'FOSUserBundle') }}:</strong> {{ user.about }}
+            <strong>{{ 'profile.show.about'|trans({}, 'FOSUserBundle') }}:</strong> {{ user.about|markdown }}
         </div>
     </div>
 
