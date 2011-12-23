@@ -18,6 +18,11 @@
         <parameter key="sfby.user.admin.group.entity">Sfby\UserBundle\Entity\Group</parameter>
         
         <parameter key="sfby_facebook.auth.class">Sfby\UserBundle\Security\User\Provider\FacebookProvider</parameter>
+        
+        <parameter key="sfby_user.registration.confirmation.template">SfbyUserBundle:Registration:email.txt.twig</parameter>
+        <parameter key="sfby_user.resetting.email.template">SfbyUserBundle:Resetting:email.txt.twig</parameter>
+        <parameter key="sfby_user.registration.template">SfbyUserBundle:Registration:registration_email.txt.twig</parameter>
+
     </parameters>
 
     
@@ -58,6 +63,23 @@
             <argument>%sfby.user.admin.group.entity%</argument>
             <argument>%sfby.user.admin.group.controller%</argument>
         </service>
+        
+        <service id="fos_user.mailer.sfby" class="Sfby\UserBundle\Mailer\Mailer" public="false">
+            <argument type="service" id="mailer" />
+            <argument type="service" id="router" />
+            <argument type="service" id="templating" />
+            <argument type="collection">
+                <argument key="confirmation.template">%sfby_user.registration.confirmation.template%</argument>
+                <argument key="resetting.template">%sfby_user.resetting.email.template%</argument>
+                <argument key="registration.template">%sfby_user.registration.template%</argument>
+                <argument key="from_email" type="collection">
+                    <argument key="registration">%fos_user.registration.confirmation.from_email%</argument>
+                    <argument key="confirmation">%fos_user.registration.confirmation.from_email%</argument>
+                    <argument key="resetting">%fos_user.resetting.email.from_email%</argument>
+                </argument>
+            </argument>
+        </service>
+
 
     </services>
 

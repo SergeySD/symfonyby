@@ -77,6 +77,8 @@ fos_user:
     profile:
         form:
             type: sfby_user_profile
+    service:
+        mailer: fos_user.mailer.sfby
             
 stof_doctrine_extensions:
     default_locale: %locale%

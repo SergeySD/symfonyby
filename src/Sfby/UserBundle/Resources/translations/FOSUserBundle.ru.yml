@@ -40,8 +40,19 @@ registration.cancel: Отмена
 registration.flash.user_created: Пользователь успешно создан
 
 registration.email: |
-    Добро пожаловать %username%!
-    Привествуем %username%!
+    Добро пожаловать %name%!
+    Привествуем %name%!
+
+    Ваш логин: %username%
+    Ваш пароль: %plainPassword%
+
+    С наилучшими пожеланиями,
+    команда symfony.by
+
+
+confirmation.email: |
+    Добро пожаловать %name%!
+    Привествуем %name%!
 
     Для подтверждения вашей регистрации, пройдите по ссылке %confirmationUrl%
 
@@ -61,7 +72,7 @@ resetting.flash.success: Пароль успешно сброшен
 
 resetting.email: |
     Сброс пароля
-    Привествуем %username%!
+    Привествуем %name%!
 
     Для сброса пароля - пожалуйста пройдите по ссылке %confirmationUrl%
 

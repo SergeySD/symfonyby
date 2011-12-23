@@ -333,8 +333,6 @@ class User extends BaseUser
     {
         $this->facebookId = $facebookID;
         $this->setUsername('fb_'.$facebookID);
-        $this->salt = '';
-
     }
 
     /**

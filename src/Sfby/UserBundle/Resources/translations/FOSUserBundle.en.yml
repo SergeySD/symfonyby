@@ -30,14 +30,25 @@ registration.back: Back to the originating page.
 registration.submit: Register1111
 registration.flash.user_created: The user has been created successfully
 
+
 registration.email: |
-    Welcome %username%!
-    Hello %username%!
+    Welcome %name%!
+    Hello %name%!
+
+    Your login: %username%
+    Your password: %password%
+
+    Regards,
+    the symfony.by Team.
+    
+confirmation.email: |
+    Welcome %name%!
+    Hello %name%!
 
     To finish activating your account - please visit %confirmationUrl%
 
     Regards,
-    the Team.
+    the symfony.by Team.
 
 # Password resetting
 resetting.request.title: Reset password
@@ -51,7 +62,7 @@ resetting.flash.success: The password has been reset successfully
 
 resetting.email: |
     Reset Password
-    Hello %username%!
+    Hello %name%!
 
     To reset your password - please visit %confirmationUrl%
 
