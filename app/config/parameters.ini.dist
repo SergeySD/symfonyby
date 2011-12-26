@@ -19,5 +19,8 @@
 
     secret=            ThisTokenIsNotSoSecretChangeIt
 
-    disqus_secret_key = 7R0YnNRPJoxsXvQwg3s1NCMudipLV6JuTXWoHjIDQh0GnJESBVV7hZpinuXmijiU
-    disqus_public_key = 3Qml1WOXhd11N6ERdn93sx66irJA250g1tAzRK1XJA8knhEhJTPrErQGDbeZwqah
+    disqus_secret_key = key
+    disqus_public_key = key
+
+    facebook_app_id = id
+    facebook_secret = secret

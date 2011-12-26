@@ -29,7 +29,3 @@ security:
                 app_url: "http://apps.facebook.com/appName/"
                 server_url: "http://localhost/symfonyby/web/index_dev.php"  
     
-fos_facebook:
-    app_id: 170680162967421
-    secret: d4e0ae46da076a0f4c5e42cbcaf233d4
-    

@@ -6,6 +6,7 @@
 /app/logs/*
 /vendor/
 /app/config/parameters.ini
+/app/config/config_*
 app/mail/*
 /nbproject
 /tmp

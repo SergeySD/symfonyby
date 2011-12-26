@@ -121,8 +121,8 @@ knp_markdown:
 fos_facebook:
     file:   %kernel.root_dir%/../vendor/facebook/src/base_facebook.php
     alias:  facebook
-    app_id: 236853723026563
-    secret: 72478fb06067af3d75958e3cdce86d46
+    app_id: %facebook_app_id%
+    secret: %facebook_secret%
     cookie: true
     permissions: [email]
     
