@@ -1,11 +1,45 @@
 header.ru: Русский
 header.en: English
-header.title: Community of Programmers
+header.title: Developers community
 header.search: Search
 header.login: Login
-header.register: Register
+header.register: Registration
 
 topmenu.blog: Blogs
+topmenu.blog.all: All
 topmenu.people: People
-topmenu.forum: Forum
 topmenu.about: About
+
+blog_category.error.name_is_blank: "Enter name"
+blog_category.error.name_short: "Name is too short"
+blog_category.error.name_long: "Name is too long"
+
+blog.error.name_is_blank: "Enter name"
+blog.error.name_short: "Name is too short"
+blog.error.name_long: "Name is too long"
+blog.error.keywords_long: "Too much keywords"
+
+blog.author: "Author"
+blog.read_more: "read more"
+blog.comments: "Comments"
+blog.comments.submit: "Send"
+
+blog.edit.title: "Edit"
+blog.edit.cancel: "Cancel"
+blog.edit.submit: "Submit"
+blog.flash.updated: "Post saved"
+
+blog.create.title: "New post"
+blog.create.cancel: "Cancel"
+blog.create.submit: "Submit"
+blog.flash.created: "New post saved"
+
+sfby_blog_form_title: "Name"
+sfby_blog_form_keywords: "Keywords"
+sfby_blog_form_short_text: "Summary"
+sfby_blog_form_text: "Text"
+sfby_blog_form_category: "Category"
+sfby_blog_form_tags_text: "Tags"
+
+flash.item.updated: "Record saved"
+server.error: "Server error"

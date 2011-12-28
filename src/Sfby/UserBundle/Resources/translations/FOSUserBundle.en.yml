@@ -11,25 +11,34 @@ security.login.username: "Username:"
 security.login.password: "Password:"
 security.login.remember_me: Remember me
 security.login.submit: Login
+security.login.cancel: Cancel
 
 # Profile
+profile.show.welcome: Welcome
 profile.show.username: Username
+profile.show.name: Name
 profile.show.email: Email
 profile.edit.submit: Update
 profile.flash.updated: The profile has been updated
+profile.show.about: About
+profile.show.created_at: Registered
+profile.show.edit: Edit
+profile.edit.title: Edit profile
+profile.edit.cancel: Cancel
 
 # Password change
 change_password.title: Change password
 change_password.submit: Change password
 change_password.flash.success: The password has been changed
+change_password.cancel: Отмена
 
 # Registration
 registration.check_email: An email has been sent to %email%. It contains an activation link you must click to activate your account.
 registration.confirmed: Congrats %username%, your account is now activated.
 registration.back: Back to the originating page.
-registration.submit: Register1111
+registration.submit: Register
+registration.cancel: Cancel
 registration.flash.user_created: The user has been created successfully
-
 
 registration.email: |
     Welcome %name%!
@@ -51,6 +60,8 @@ confirmation.email: |
     the symfony.by Team.
 
 # Password resetting
+resetting.password_already_requested: Password for this user was already restored within 24 hrs.
+resetting.check_email: E-mail is already sent to %email%. It contains the link that should be clicked to reset password.
 resetting.request.title: Reset password
 resetting.password_already_requested: The password for this user has already been requested within the last 24 hours.
 resetting.check_email: An email has been sent to %email%. It contains a link you must click to reset your password.
