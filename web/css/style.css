@@ -20,7 +20,7 @@ pre { margin-bottom: 14px; }
 .header{ float:left; height:167px; width:999px; }
 	.top_nav{ float:right; margin-right:16px; height:44px; width:955px; position:relative;}
 	.author{ float:right; width:224px; height:35px; background:#EDEDED; margin-top:8px; padding-right:12px;  border-top: 1px solid #F5F5F5; border-left: 1px solid #F5F5F5; border-right: 1px solid #F5F5F5;  behavior:url(PIE.htc);  -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px 2px 0 0; padding-left:10px;}
-		.author a{ float:left; margin-top:11px; height:11px; padding-left:19px; font-family:"Trebuchet MS", Arial, Helvetica, sans-serif; font-size:13px; line-height:9px; color:#95C31C; text-decoration:none; background: url(../images/icon_author.png) no-repeat top left; }
+		.author a{ float:left; margin-top:11px; margin-right:10px; height:11px; padding-left:19px; font-family:"Trebuchet MS", Arial, Helvetica, sans-serif; font-size:13px; line-height:9px; color:#95C31C; text-decoration:none; background: url(../images/icon_author.png) no-repeat top left; }
 		.author .enter{ float:right; width:12px; height:11px; background: url(../images/main_enter.png) no-repeat left top; padding-left:0px;}
 	
 		
