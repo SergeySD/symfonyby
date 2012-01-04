@@ -107,3 +107,32 @@ fos_user_change_password_form_current: "Current password"
 # sfby
 fos_user_registration_form_name: "Name"
 fos_user_registration_form_about: "About"
+
+fos_user_profile_form_user_name: "Имя"
+fos_user_profile_form_user_file: "Изображение"
+fos_user_profile_form_user_about: "О себе"
+
+#errors
+"The username is already used": "This login is already registered"
+"The email is already used": "This E-mail is already in use"
+"Please enter a username": "Specify login"
+"The username is too short": "Login is too short"
+"The username is too long": "Login is too long"
+"Please enter an email": "Enter E-mail"
+"The email is too short": "E-mail is short"
+"The email is too long": "E-mail is long"
+"The email is not valid": "E-mail is wrong"
+"Please enter a password": "Specify password"
+"The password is too short": "Password is short"
+"Please enter a new password": "Specify new password"
+"The new password is too short": "New password is short"
+profile.error.name_is_blank: "Specify name"
+profile.error.name_short: "Name is short"
+profile.error.name_long: "Name is long"
+"The entered password is invalid.": "Wrong password"
+
+profile.error.image_type: "File is not image"
+profile.error.image_size: "File is too large ({{ size }}). Size should not be larger than {{ limit }}"
+
+"Bad credentials": "You're not logged in. Please specify proper login/password."
+"The presented password is invalid.": "You're not logged in. Please specify proper login/password."
