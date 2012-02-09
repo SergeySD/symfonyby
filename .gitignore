@@ -1,6 +1,7 @@
 /web/bundles/
 /web/uploads/*
 /web/cache/*
+/web/index_*
 /app/bootstrap*
 /app/cache/*
 /app/logs/*
