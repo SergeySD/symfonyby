@@ -18,7 +18,7 @@
     <h3>{{blog.title}}</h3>
     <p class="author_article">{{"blog.author"|trans}}: {{blog.user.name}} </p>
     <div class="text_article">
-        <p><i>{{blog.shortText}}</i></p>
+        <p><i>{{blog.shortText|markdown}}</i></p>
         <p>{{blog.text|markdown}}</p>
     </div>
     
