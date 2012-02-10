@@ -5,7 +5,6 @@
             {% if user.image %}
                 <img src="{{ user.webPath|apply_filter('profile_avatar') }}" />
             {% else %}
-                <!--<img src="{{asset('images/prof.png')}}" alt="" />-->
             {% endif %}
         </a>
     </div>
@@ -13,8 +12,6 @@
         <ul>
             <li>{{ 'profile.show.name'|trans({}, 'FOSUserBundle') }}: <span>{{ user.name }}</span></li>
             <li>{{ 'profile.show.created_at'|trans({}, 'FOSUserBundle') }}: <span>{{ user.createdAt|date('d.m.Y') }}</span></li>
-            <li>{{ 'profile.show.username'|trans({}, 'FOSUserBundle') }}: <span>{{ user.username }}</span></li>
-            <li>{{ 'profile.show.email'|trans({}, 'FOSUserBundle') }}: <span>{{ user.email }}</span></li>
         </ul>
     </div>
 </div>
