@@ -57,7 +57,7 @@
     {% endblock %}
   </head> 
   <body class="lang_{{ app.session.locale=='ru_ru' ? 'ru' : 'en' }}">
-      {{ facebook_initialize({'xfbml': true,'appId':236853723026563, 'fbAsyncInit': 'onFbInit();'}) }}
+      {{ facebook_initialize({'xfbml': true, 'fbAsyncInit': 'onFbInit();'}) }}
         <script type="text/javascript">
             function goLogIn(){
                   window.location = "{{ path('_security_check_facebook') }}";
