@@ -1,5 +1,6 @@
 <div class="header">
     <div class="top_nav">
+        <div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js#appId=236853723026563&amp;xfbml=1"></script><fb:like href="http://symfony.by/" send="true" width="450" show_faces="false" action="like" font=""></fb:like>
         <div class="author">
             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                 <a href="{{path('fos_user_profile_show')}}">{{ user.name }}</a>
