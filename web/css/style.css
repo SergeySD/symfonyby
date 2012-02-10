@@ -23,7 +23,7 @@ pre { margin-bottom: 14px; }
 		.author a{ float:left; margin-top:11px; margin-right:10px; height:11px; padding-left:19px; font-family:"Trebuchet MS", Arial, Helvetica, sans-serif; font-size:13px; line-height:9px; color:#95C31C; text-decoration:none; background: url(../images/icon_author.png) no-repeat top left; }
 		.author .enter{ float:right; width:12px; height:11px; background: url(../images/main_enter.png) no-repeat left top; padding-left:0px;}
 	
-		
+	.top_nav .fb-like{margin-top: 8px;}	
 	.top_nav ul{ float: right; margin-right:47px; margin-top:16px;}
 		.top_nav ul li{ float:left; margin-left:22px;}
 			.top_nav ul li a, .top_nav ul li span{ font-family:Georgia, "Times New Roman", Times, serif; font-size:14px; line-height:19px; color:#313131;  text-decoration:none; }
