@@ -79,7 +79,9 @@ fos_user:
             type: sfby_user_profile
     service:
         mailer: fos_user.mailer.sfby
-            
+    from_email:
+        address: no-reply@symfony.by
+        sender_name: Symfony.by
 stof_doctrine_extensions:
     default_locale: %locale%
     orm:
